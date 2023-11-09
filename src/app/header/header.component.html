@@ -1,0 +1,81 @@
+<header class="container">
+  <div class="container-header">
+    <div class="item-header justify-content-space-between">
+      <img
+        src="../../assets/images/logo_rooots.svg"
+        alt="Rooots"
+        id="logo-rooots"
+        routerLink=""
+      />
+    </div>
+    <div class="container-search item-header justify-content-space-between">
+      <input
+        type="text"
+        [(ngModel)]="search"
+        id="search"
+        placeholder="Recherche"
+      />
+      <img src="../../assets/icons/icon_loupe.svg" />
+    </div>
+    <div class="item-header justify-content-flex-end">
+      <button class="btn-connexion">
+        <img src="../../assets/icons/icon_user.svg" class="mr-5" />
+        Se connecter
+      </button>
+      <button class="btn-primary">S'inscrire</button>
+      <select name="language" id="language" class="select-language">
+        <option value="FRA" selected>FRA</option>
+        <option value="EN">EN</option>
+        <option value="ESP" disabled>ESP</option>
+      </select>
+    </div>
+  </div>
+  <div class="container-menu">
+    <div class="item-catalogue">
+      <button
+        class="btn-secondary btn-catalogue"
+        (mouseover)="
+          showLeftSubMenu(); iconCatalogue = '../../assets/icons/icon_cross.svg'
+        "
+        (mouseout)="
+          hideLeftSubMenu();
+          iconCatalogue = '../../assets/icons/icon_catalogue.svg'
+        "
+      >
+        <img class="mr-5" [src]="iconCatalogue" />
+        Catalogue
+      </button>
+    </div>
+    <div class="item-menu">
+      <button class="btn-secondary"  routerLink="/search-product">Évaluation des produits</button>
+      <button class="btn-secondary">Qui sommes-nous ?</button>
+      <button class="btn-secondary">L’actu éco-responsable</button>
+      <button class="btn-secondary">Vendre</button>
+    </div>
+  </div>
+</header>
+<div
+  class="submenu"
+  (mouseover)="iconCatalogue = '../../assets/icons/icon_cross.svg'"
+  (mouseout)="iconCatalogue = '../../assets/icons/icon_catalogue.svg'"
+>
+  <ul
+    class="left-submenu flex-column"
+    [ngClass]="{ 'submenu-visible': isSubMenuVisible }"
+  >
+    <li class="item-left-submenu" *ngFor="let cat of categories" [value]="cat">
+      <p>{{ cat.name }}</p>
+      <img src="../../assets/icons/icon_menu_arrow.svg" />
+      <ul class="right-submenu">
+        <li
+        *ngFor="let subcategories of cat.subcategories"
+        [value]="subcategories"
+        [routerLink]="[cat.name,subcategories.name]"
+        >
+          <img src="{{ subcategories.img }}" />
+          <h4>{{ subcategories.name }}</h4>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

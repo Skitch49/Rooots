@@ -1,0 +1,30 @@
+.header {
+  margin-top: 1rem;
+  border-bottom: 1px solid var(--gray-background);
+  h1 {
+    text-align: start;
+    margin: 3rem 0;
+  }
+  img {
+    margin: 0 10px;
+  }
+  .active {
+    font-weight: 700;
+    color: var(--secondary);
+  }
+  span {
+    cursor: pointer;
+  }
+}
+
+.container-form {
+  flex-basis: 22rem;
+  .unit{
+    font-size: 16px;
+    font-weight: 400;
+  }
+//   background: var(--primary);
+}
+.container-products {
+//   background: var(--secondary);
+}
