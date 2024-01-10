@@ -1,0 +1,34 @@
+/* Réinitialisation du style par défaut de la checkbox */
+.rt-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #97a3af;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #068464;
+    background: #cae1db;
+  }
+  &:checked {
+    background-color: #068464;
+    border-color: #068464;
+    color: white;
+    &:before {
+        content: "";
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        width: 4px;
+        height: 10px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg) translate(-50%, -50%);
+        z-index: 2;
+      }
+  }
+  
+}

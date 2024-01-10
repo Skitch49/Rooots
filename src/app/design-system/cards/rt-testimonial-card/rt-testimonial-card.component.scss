@@ -1,0 +1,50 @@
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid var(--gray-background);
+  width: 296px;
+  height: 426px;
+  background-color: #fff;
+  .avis-user {
+    padding: 24px;
+  }
+  span {
+    position: absolute;
+    left: 32px;
+    top: -31px;
+    display: flex;
+    width: 100%;
+    rotate: 180deg;
+    font-size: 48px;
+    size: 51px;
+    mat-icon {
+        width: 100%;
+        height: 100%;
+        font-size: 65px;
+    }
+  }
+  .footer-card-commu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    padding-left: 24px;
+    padding-bottom: 24px;
+    padding-right: 24px;
+    color: var(--secondary);
+    background: #cdd3dc;
+    text-align: center;
+    figure {
+      position: absolute;
+      bottom: 6rem;
+      user-select: none;
+      img {
+        border-radius: 50%;
+        padding: 3px;
+        background: white;
+      }
+    }
+  }
+}

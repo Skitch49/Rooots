@@ -1,0 +1,10 @@
+<li class="nav-link" routerLink="{{ link }}" [ngClass]="'rt-' + p">
+  <mat-icon
+    *ngIf="leftIcon"
+    aria-hidden="false"
+    aria-label="{{ leftIcon }}"
+    fontIcon="{{ leftIcon }}"
+    class="leftIcon"
+  ></mat-icon>
+  {{ text }}
+</li>

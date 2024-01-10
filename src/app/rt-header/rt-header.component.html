@@ -1,0 +1,74 @@
+<header
+  (scroll)="onscroll()"
+  [ngClass]="navbarDisplay ? 'display' : 'not-display'"
+>
+  <div class="top-header">
+    <app-rt-button
+      type="quaternary"
+      size="big"
+      text="{{ connexionBtn }}"
+      *ngIf="!connexion"
+    ></app-rt-button>
+    <app-rt-button
+      (click)="_translator.getTranslation('fr')"
+      type="quaternary"
+      size="big"
+      leftIcon="person_outline"
+      text="{{ Username }}"
+      *ngIf="connexion"
+    ></app-rt-button>
+    <app-rt-language-dropdown></app-rt-language-dropdown>
+  </div>
+  <div class="footer-header">
+    <app-rt-nav-link
+      leftIcon="border_all"
+      text="{{ catalogue }}"
+      class="catalogue"
+      (click)="showSubMenu()"
+    ></app-rt-nav-link>
+    <figure>
+      <img
+        src="./../../assets/images/logo_rooots.svg"
+        routerLink="/"
+        alt="Logo Rooots"
+      />
+    </figure>
+
+    <app-rt-search-bar></app-rt-search-bar>
+    <!-- link="/qui-sommes-nous" A changer a la place de test -->
+    <app-rt-nav-link link="test" text="{{ whoAreYou }}"></app-rt-nav-link>
+    <app-rt-nav-link link="/actualites" text="{{ actu }}"></app-rt-nav-link>
+    <app-rt-nav-link
+      link="/devenir-vendeur"
+      text="{{ becomeSheller }}"
+    ></app-rt-nav-link>
+  </div>
+  <div
+    class="submenu"
+    *ngIf="subMenuVisible"
+  >
+    <ul
+      class="left-submenu flex-column"
+      [ngClass]="{ 'submenu-visible': subMenuVisible }"
+    >
+      <li
+        class="item-left-submenu"
+        *ngFor="let cat of categories"
+        [value]="cat"
+      >
+        <p>{{ cat.name }}</p>
+        <img src="../../assets/icons/icon_menu_arrow.svg" />
+        <ul class="right-submenu">
+          <li
+            *ngFor="let subcategories of cat.subcategories"
+            [value]="subcategories"
+            [routerLink]="[cat.name, subcategories.name]"
+          >
+            <img src="{{ subcategories.img }}" />
+            <h4>{{ subcategories.name }}</h4>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>

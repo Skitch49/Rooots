@@ -6,59 +6,28 @@
 :root {
   --primary: #068464;
   --secondary: #2b486c;
-  --first-font-family: "DM Sans", sans-serif;
+  --accent : #034232;
+  --first-font-family: 'DM Sans', sans-serif;
   --secondary-font-family: "CoconPro-Regular Regular";
   --box-shadow: 0 1px 4px 0 #1115190a, 0 4px 10px 0 #11151914;
-  --background-color: #fffbed;
-  --gray-background: #ccd3dc;
+  --background-color: #fff;
+  --gray-background: #f3f3f8;
   --gray: #808080;
-  --neutral: #ECF0F3;
-
+  --neutral: #ecf0f3;
 }
 body {
   font-family: var(--first-font-family);
   color: var(--secondary);
+  height: max-content;
 }
-ul{
+mat-icon, img{
+  user-select: none;
+}
+ul {
   list-style: none;
 }
-.container{
+.container {
   padding: 0 5rem;
-}
-.container-left{
-  padding-left: 5rem;
-}
-.btn-primary {
-  background-color: var(--primary);
-  color: white;
-  padding: 10px 30px;
-  margin: 0 1rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
-  width: max-content;
-}
-.btn-primary-alternative {
-  background-color: transparent;
-  color: var(--primary);
-  padding: 10px 30px;
-  margin: 0 1rem;
-  cursor: pointer;
-  border: 1px solid var(--primary);
-  border-radius: 4px;
-  font-weight: bold;
-}
-.btn-secondary {
-  background-color: white;
-  color: var(--secondary);
-  padding: 10px 30px;
-  margin: 0 1rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
 }
 
 h1 {
@@ -73,6 +42,13 @@ h2 {
   font-size: 38px;
   font-weight: 700;
   line-height: 41px;
+}
+h3 {
+  font-family: var(--primary-font-family);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0px;
 }
 .d-flex {
   display: flex;
@@ -121,17 +97,18 @@ h2 {
 .mt-50 {
   margin-top: 50px;
 }
+
 .m-ver-10 {
   margin: 10px 0;
 }
 .m-ver-20 {
   margin: 20px 0;
 }
-.m-ver-50 {
-  margin: 50px 0;
-}
 .m-hor-20 {
   margin: 0 20px;
+}
+.m1-rem-hor {
+  margin: 0 1rem;
 }
 .mr-5 {
   margin-right: 5px;
@@ -145,6 +122,4 @@ h2 {
 .p-20 {
   padding: 20px;
 }
-.pr-5rem{
-  padding-right: 5rem;
-}
+

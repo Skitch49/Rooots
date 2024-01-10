@@ -1,0 +1,17 @@
+<div [ngClass]="['rt-' + size, 'rt-' + type]" class="rt-button">
+  <mat-icon
+    *ngIf="leftIcon"
+    aria-hidden="false"
+    aria-label="{{ leftIcon }}"
+    fontIcon="{{ leftIcon }}"
+    class="leftIcon"
+  ></mat-icon>
+  {{ text }}
+  <mat-icon
+    *ngIf="rightIcon"
+    aria-hidden="false"
+    aria-label="{{ rightIcon }}"
+    fontIcon="{{ rightIcon }}"
+    class="rightIcon"
+  ></mat-icon>
+</div>

@@ -138,6 +138,8 @@ header {
       }
       img {
         transition: border-radius 200ms;
+        user-select: none;
+
       }
       &:hover > img {
         border-radius: 25%;

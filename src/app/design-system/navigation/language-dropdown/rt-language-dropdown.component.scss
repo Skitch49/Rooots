@@ -1,0 +1,31 @@
+select {
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  padding: 1rem;
+  padding-right: 24px;
+  color: white;
+  font-weight: bold;
+  option {
+    color: var(--secondary);
+    font-weight: bold;
+
+  }
+  &:focus ~mat-icon{
+    transform: rotate(180deg);
+  }
+}
+
+mat-icon {
+  transition: transform linear 200ms;
+  position: relative;
+  top: 5px;
+  right: 20px;
+  color: var(--primary);
+}

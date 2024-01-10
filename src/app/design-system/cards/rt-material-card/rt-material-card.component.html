@@ -1,0 +1,25 @@
+<div class="material-card">
+  <span class="like"
+  (click)="likeEvent()"
+    ><mat-icon
+      aria-hidden="false"
+      aria-label="Like le produit"
+      fontIcon="{{like ? 'favorite':'favorite_border'}}"
+    ></mat-icon
+  ></span>
+  <figure>
+    <img src="{{ img }}" />
+  </figure>
+  <div class="content-material">
+    <div class="header-content">
+      <p class="categorie">{{ categorie }}</p>
+      <h3>{{ titre }}</h3>
+    </div>
+    <div class="footer-content">
+      <p>
+        <span class="prix">{{ prix }}€</span
+        ><span class="unite">/{{ unite }}</span>
+      </p>
+    </div>
+  </div>
+</div>

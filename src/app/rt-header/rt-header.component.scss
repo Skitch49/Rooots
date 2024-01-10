@@ -1,0 +1,117 @@
+header {
+  box-shadow: var(--box-shadow);
+  background: white;
+  z-index: 99;
+  transition: all 0.4s ease-in-out;
+  position: sticky;
+  top: 0px;
+  .top-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: var(--accent);
+    padding: 0 80px;
+  }
+  .footer-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // align-items: center;
+    padding: 10px 80px;
+    .catalogue {
+      padding-right: 10px !important;
+    }
+    app-rt-search-bar {
+      flex: 1;
+    }
+    figure {
+      padding-right: 20px;
+      padding-left: 10px;
+      border-left: 1px solid #ccd3dc;
+    }
+  }
+}
+
+.display{
+  visibility: visible
+}
+.not-display{
+  visibility: hidden;
+  top: -150px;
+}
+
+
+
+
+.submenu:has(.item-left-submenu:hover) {
+  width: 100% !important;
+}
+.submenu {
+  display: flex;
+  background: white;
+  position: absolute;
+  box-shadow: var(--box-shadow);
+  width: 334px;
+
+  .left-submenu {
+    border: 1px solid #ecf0f3;
+    flex-basis: 21rem;
+    display: flex;
+    padding: 1rem 0;
+    width: 334px;
+    &:hover {
+      display: flex;
+    }
+    .item-left-submenu {
+      padding-left: 122px;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      padding-right: 1rem;
+      display: flex;
+      justify-content: space-between;
+      &:hover {
+        background: var(--neutral);
+        .right-submenu {
+          display: flex;
+        }
+      }
+    }
+  }
+  .right-submenu {
+    min-height: 352px;
+    display: none; // none normalement
+    position: absolute;
+    flex-wrap: wrap;
+    left: 333px;
+    border-left: 1px solid #ecf0f3;
+    top: 0;
+    padding-top: 2rem;
+    padding-right: 20px;
+    padding-left: 20px;
+    background: white;
+    width: calc(100% - 334px);
+    li {
+      cursor: pointer;
+      padding-right: 12px;
+      padding-left: 12px;
+      padding-bottom: 12px;
+      text-align: center;
+      &:hover{
+        color: var(--primary);
+      }
+      img {
+        transition: border-radius 200ms;
+        user-select: none;
+
+      }
+      &:hover > img {
+        border-radius: 25%;
+      }
+    }
+  }
+}
+.item-left-submenu:hover + .submenu {
+  width: 100%; /* Largeur lorsque .item-left-submenu est en hover ou lorsque .submenu elle-même est en hover */
+  // Autres propriétés pour le hover
+}

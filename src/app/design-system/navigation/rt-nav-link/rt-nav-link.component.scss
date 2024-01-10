@@ -1,0 +1,35 @@
+.nav-link {
+  color: var(--secondary);
+  user-select: none;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: #068464;
+    text-underline-position: from-font;
+    color: #068464;
+  }
+  &:active {
+    color: #045c45;
+    text-decoration: underline;
+    text-decoration-color: #045c45;
+    text-underline-position: from-font;
+  }
+  &:disabled {
+    color: #ccd3dc;
+  }
+}
+
+// icons
+.leftIcon {
+  margin-right: 5px;
+}
+.rt-p-20 {
+  padding: 20px;
+}
+.rt-p-3 {
+  padding: 3px;
+}

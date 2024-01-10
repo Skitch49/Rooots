@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SearchProductComponent } from './search-product/search-product.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
+  { path: 'test', component: TestComponent },
   { path: 'search-product', component: SearchProductComponent },
   { path: ':categorie/:subcategorie', component: SearchProductComponent },
   { path: '**', component: HomeComponent },

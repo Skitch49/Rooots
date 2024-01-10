@@ -1,0 +1,9 @@
+<select name="language" id="language" [(ngModel)]="currentLangage" (change)="_translator.getTranslation(currentLangage)">
+  <option value="fr">FRA</option>
+  <option value="en">ENG</option>
+</select>
+<mat-icon
+  aria-hidden="false"
+  aria-label=""
+  fontIcon="arrow_drop_down"
+></mat-icon>

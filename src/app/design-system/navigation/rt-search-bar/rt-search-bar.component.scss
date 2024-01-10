@@ -1,0 +1,19 @@
+.container-search {
+    display: flex;
+    justify-content: space-between;
+    flex: 2;
+    align-items: center;
+    border: 1px solid #b3b3b3;
+    border-radius: 3px;
+    input {
+      flex: 3;
+      outline: none;
+      border: none;
+      margin-left: 10px;
+      height: 100%;
+      &::placeholder {
+        color: black;
+        opacity: 1;
+      }
+    }
+  }

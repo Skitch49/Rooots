@@ -1,0 +1,69 @@
+<div class="container container-footer">
+  <app-rt-newsletter-card></app-rt-newsletter-card>
+  <div class="top-footer d-flex justify-content-space-between">
+    <div class="item-footer d-flex flex-column">
+      <img src="./../../assets/images/logo_rooots.svg" />
+      <div class="container-social-media">
+        <a href=""
+          ><img src="../../assets/icons/icon_facebook.svg" alt="Facebook"
+        /></a>
+        <a href=""
+          ><img src="../../assets/icons/icon_linkedin.svg" alt="Linkedin"
+        /></a>
+        <a href="">
+          <img src="../../assets/icons/icon_instagram.svg" alt="Instagram" />
+        </a>
+      </div>
+    </div>
+    <div class="item-footer d-flex flex-column">
+      <h3>{{ titleInfo }}</h3>
+      <app-rt-nav-link
+        p="p-3"
+        link="service-client"
+        text="{{ customerService }}"
+      ></app-rt-nav-link>
+      <app-rt-nav-link
+        p="p-3"
+        link="plan-du-site"
+        text="{{ sitemap }}"
+      ></app-rt-nav-link>
+    </div>
+    <div class="item-footer d-flex flex-column">
+      <h3>{{ titleLegislation }}</h3>
+      <app-rt-nav-link
+        p="p-3"
+        link="mentions-legales"
+        text="{{ legalNotice }}"
+      ></app-rt-nav-link>
+      <app-rt-nav-link
+        p="p-3"
+        link="protection-des-donnees"
+        text="{{ dataProtection }}"
+      ></app-rt-nav-link>
+      <app-rt-nav-link p="p-3" link="CGU" text="{{ CGU }}"></app-rt-nav-link>
+    </div>
+    <div class="item-footer d-flex flex-column">
+      <h3>{{ titleMember }}</h3>
+      <app-rt-nav-link
+        p="p-3"
+        link="devenir-vendeur"
+        text="{{ becomeSeller }}"
+      ></app-rt-nav-link>
+      <app-rt-nav-link
+        p="p-3"
+        link="parrainage"
+        text="{{ sponsorship }}"
+      ></app-rt-nav-link>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="under-footer d-flex justify-content-space-between">
+    <p>{{ copyright }}</p>
+    <div class="container-bank-card">
+      <img src="../../assets/icons/icon_visa.svg" alt="Visa" />
+      <img src="../../assets/icons/icon_mastercard.svg" alt="Mastercard" />
+      <img src="../../assets/icons/icon_stripe.svg" alt="Stripe" />
+    </div>
+  </div>
+</div>

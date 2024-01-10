@@ -2,17 +2,18 @@
   <div class="item-1 d-flex flex-column align-center">
     <div class="content-item-1 d-flex align-center flex-column">
       <h1>
-        Trouvez les matériaux de votre succès
-        <span class="underline">responsable</span>
+        {{ titleHome }}
+        <span class="underline">{{ endTitleHome }}</span>
       </h1>
       <p>
-        Trouvez des matières premières et produits intermédiaires éco
-        responsables provenant de fournisseurs européens, et contribuez à créer
-        un avenir durable pour votre entreprise et notre planète.
+        {{ paraHome }}
       </p>
       <div class="d-flex m-20">
-        <button class="btn-primary">Créer un compte</button>
-        <button class="btn-primary-alternative">Acheter maintenant</button>
+        <app-rt-button
+          size="big"
+          type="secondary"
+          text="{{ buy }}"
+        ></app-rt-button>
       </div>
     </div>
   </div>
@@ -20,40 +21,28 @@
     <div
       class="d-flex justify-content-space-between container-card container flex-wrap"
     >
-      <div class="card-menu d-flex flex-column">
-        <figure><img src="../../assets/images/img_example_1.svg" /></figure>
-        <h3 class="title-card">
-          Tissus durables pour vêtements éco-responsables
-        </h3>
-      </div>
-      <div class="card-menu d-flex flex-column">
-        <figure><img src="../../assets/images/img_example_2.svg" /></figure>
-        <h3 class="title-card">
-          Ingrédients bio pour cosmétiques naturels et respectueux de la peau
-        </h3>
-      </div>
-      <div class="card-menu d-flex flex-column">
-        <figure>
-          <img src="../../assets/images/img_example_1.svg" />
-        </figure>
-        <h3 class="title-card">
-          Tissus durables pour vêtements éco-responsables
-        </h3>
-      </div>
-      <div class="card-menu d-flex flex-column">
-        <figure>
-          <img src="../../assets/images/img_example_1.svg" />
-        </figure>
-        <h3 class="title-card">
-          Tissus durables pour vêtements éco-responsables
-        </h3>
-      </div>
+      <app-rt-hightlight-card
+        img="../../assets/images/img_hightlight_1.svg"
+        text="{{ hightlightCard1 }}"
+      ></app-rt-hightlight-card>
+      <app-rt-hightlight-card
+        img="../../assets/images/img_hightlight_2.svg"
+        text="{{ hightlightCard2 }}"
+      ></app-rt-hightlight-card>
+      <app-rt-hightlight-card
+        img="../../assets/images/img_hightlight_3.svg"
+        text="{{ hightlightCard3 }}"
+      ></app-rt-hightlight-card>
+      <app-rt-hightlight-card
+        img="../../assets/images/img_hightlight_4.svg"
+        text="{{ hightlightCard4 }}"
+      ></app-rt-hightlight-card>
     </div>
   </div>
 
-  <div class="container-left container-position">
-    <div class="pr-5rem d-flex justify-content-space-between">
-      <h2 class="title-position">C'est proche de chez vous</h2>
+  <div class="container container-position">
+    <div class="d-flex justify-content-space-between">
+      <h2 class="title-position">{{ titleProximity }}</h2>
       <div>
         <img
           src="./../../assets/icons/icon_slider_arrow.svg"
@@ -73,141 +62,30 @@
     <div class="under-container-position d-flex">
       <div class="d-flex flex-column content-position">
         <p>
-          Découvrez des produits éco-responsables locaux, sélectionnés avec soin
-          auprès de fournisseurs proches de chez vous, pour une chaîne
-          d'approvisionnement durable et à faible impact environnemental.
+          {{ descProximity }}
         </p>
-        <button class="btn-primary m-ver-20">Voir toutes les matières</button>
+        <app-rt-button
+          class="m-ver-20"
+          text="{{ btnAllMaterials }}"
+        ></app-rt-button>
       </div>
       <div class="d-flex slider-position">
         <swiper-container
           pagination="true"
           pagination-clickable="true"
           lazy="true"
-          slides-per-view="3.33"
+          slides-per-view="3"
           slides-per-group="3"
           loop="true"
           class="swiper-container"
           #swiperPosition
         >
-          <swiper-slide>
-            <div class="card d-flex flex-column">
-              <p class="localisation">à - de 60km</p>
-              <figure>
-                <img
-                  src="./../../assets/images/img_example_3.svg"
-                  loading="lazy"
-                />
-              </figure>
-
-              <h3 class="title-card">
-                Tissus durables pour vêtements éco-responsables
-              </h3>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="card d-flex flex-column">
-              <p class="localisation">à - de 60km</p>
-              <figure>
-                <img
-                  src="./../../assets/images/img_example_3.svg"
-                  loading="lazy"
-                />
-              </figure>
-              <h3 class="title-card">Bois FSC des Vosges</h3>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="card d-flex flex-column">
-              <p class="localisation">à - de 60km</p>
-              <figure>
-                <img
-                  src="./../../assets/images/img_example_3.svg"
-                  loading="lazy"
-                />
-              </figure>
-              <h3 class="title-card">
-                Tissus durables pour vêtements éco-responsables
-              </h3>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="card d-flex flex-column">
-              <p class="localisation">à - de 60km</p>
-              <figure>
-                <img
-                  src="./../../assets/images/img_example_3.svg"
-                  loading="lazy"
-                />
-              </figure>
-              <h3 class="title-card">Bois FSC des Vosges</h3>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="card d-flex flex-column">
-              <p class="localisation">à - de 60km</p>
-              <figure>
-                <img
-                  src="./../../assets/images/img_example_3.svg"
-                  loading="lazy"
-                />
-              </figure>
-              <h3 class="title-card">
-                Tissus durables pour vêtements éco-responsables
-              </h3>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="card d-flex flex-column">
-              <p class="localisation">à - de 60km</p>
-              <figure>
-                <img
-                  src="./../../assets/images/img_example_3.svg"
-                  loading="lazy"
-                />
-              </figure>
-              <h3 class="title-card">Bois FSC des Vosges</h3>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="card d-flex flex-column">
-              <p class="localisation">à - de 60km</p>
-              <figure>
-                <img
-                  src="./../../assets/images/img_example_3.svg"
-                  loading="lazy"
-                />
-              </figure>
-              <h3 class="title-card">
-                Tissus durables pour vêtements éco-responsables
-              </h3>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="card d-flex flex-column">
-              <p class="localisation">à - de 60km</p>
-              <figure>
-                <img
-                  src="./../../assets/images/img_example_3.svg"
-                  loading="lazy"
-                />
-              </figure>
-              <h3 class="title-card">Bois FSC des Vosges</h3>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="card d-flex flex-column">
-              <p class="localisation">à - de 60km</p>
-              <figure>
-                <img
-                  src="./../../assets/images/img_example_3.svg"
-                  loading="lazy"
-                />
-              </figure>
-              <h3 class="title-card">
-                Tissus durables pour vêtements éco-responsables
-              </h3>
-            </div>
+          <swiper-slide *ngFor="let i of [].constructor(9).keys()">
+            <app-rt-proximity-card
+              localisation="60"
+              img="../../assets/images/img_example_3.svg"
+              text="{{ textCardProximity }}"
+            ></app-rt-proximity-card>
           </swiper-slide>
         </swiper-container>
       </div>
@@ -215,46 +93,42 @@
   </div>
   <div class="container container-presentation d-flex align-center">
     <div class="d-flex flex-column content-presentation">
-      <h2>Pourquoi choisir Rooots ?</h2>
+      <h2>{{ whyRooots }}</h2>
       <div class="d-flex flex-wrap">
         <div class="item-presentation d-flex flex-column p-20">
           <div class="icon-presentation d-flex justify-content-center m-ver-10">
             <img src="./../../assets/icons/icon_rectangle.svg" alt="" />
           </div>
-          <h3>Large choix de matériaux éco-responsables</h3>
+          <h3>{{ titleResponse1 }}</h3>
           <p class="mt-10">
-            Explorez des sources éco-responsables pour répondre à la demande des
-            consommateurs éco-conscients.
+            {{ descResponse1 }}
           </p>
         </div>
         <div class="item-presentation d-flex flex-column p-20">
           <div class="icon-presentation d-flex justify-content-center m-ver-10">
             <img src="./../../assets/icons/icon_cible.svg" alt="" />
           </div>
-          <h3>Transparence et traçabilité</h3>
+          <h3>{{ titleResponse2 }}</h3>
           <p class="mt-10">
-            Bénéficiez d'une visibilité sur l'origine des matières ainsi que les
-            pratiques durables de vos fournisseurs.
+            {{ descResponse2 }}
           </p>
         </div>
         <div class="item-presentation d-flex flex-column p-20">
           <div class="icon-presentation d-flex justify-content-center m-ver-10">
             <img src="./../../assets/icons/icon_pouce.svg" alt="" />
           </div>
-          <h3>Processus de vente et d'achat simplifié</h3>
+          <h3>{{ titleResponse3 }}</h3>
           <p class="mt-10">
-            Accédez à une plateforme conviviale qui facilite la recherche, la
-            comparaison et l'achat des matières.
+            {{ descResponse3 }}
           </p>
         </div>
         <div class="item-presentation d-flex flex-column p-20">
           <div class="icon-presentation d-flex justify-content-center m-ver-10">
             <img src="./../../assets/icons/icon_world.svg" alt="" />
           </div>
-          <h3>Renforcement de l'engagement responsable</h3>
+          <h3>{{ titleResponse4 }}</h3>
           <p class="mt-10">
-            Renforcez votre image de marque grâce à l'utilisation de matières
-            éco-responsables.
+            {{ descResponse4 }}
           </p>
         </div>
       </div>
@@ -263,57 +137,37 @@
       <img src="./../../assets/images/img_illustration_home.svg" alt="" />
     </div>
   </div>
-  <div class="container d-flex flex-column m-ver-50">
-    <h2>Nos dernières actualités</h2>
+  <div class="container container-actu d-flex flex-column">
+    <h2>{{ titleLastActu }}</h2>
     <div
       class="container-card-actu d-flex justify-content-space-between mt-50 flex-wrap"
     >
-      <div class="card-actu d-flex flex-column">
-        <img src="../../assets/images/img_illustration_actu.svg" />
-        <div class="content-actu">
-          <p class="date-actu">8 juin 2023</p>
-          <h3 class="title-card mt-10">RSE : Tout ce qu’il faut savoir</h3>
-          <p class="mt-10">
-            Explorez les principes fondamentaux de la RSE, son impact sur les
-            entreprises et la société...
-          </p>
-        </div>
-      </div>
-      <div class="card-actu d-flex flex-column">
-        <img src="../../assets/images/img_illustration_actu.svg" />
-        <div class="content-actu">
-          <p class="date-actu">8 juin 2023</p>
-          <h3 class="title-card mt-10">RSE : Tout ce qu’il faut savoir</h3>
-          <p class="mt-10">
-            Explorez les principes fondamentaux de la RSE, son impact sur les
-            entreprises et la société...
-          </p>
-        </div>
-      </div>
-      <div class="card-actu d-flex flex-column">
-        <img src="../../assets/images/img_illustration_actu.svg" />
-        <div class="content-actu">
-          <p class="date-actu">8 juin 2023</p>
-          <h3 class="title-card mt-10">RSE : Tout ce qu’il faut savoir</h3>
-          <p class="mt-10">
-            Explorez les principes fondamentaux de la RSE, son impact sur les
-            entreprises et la société...
-          </p>
-        </div>
-      </div>
-      <div class="card-actu d-flex flex-column">
-        <img src="../../assets/images/img_illustration_actu.svg" />
-        <div class="content-actu">
-          <p class="date-actu">8 juin 2023</p>
-          <h3 class="title-card mt-10">RSE : Tout ce qu’il faut savoir</h3>
-          <p class="mt-10">
-            Explorez les principes fondamentaux de la RSE, son impact sur les
-            entreprises et la société...
-          </p>
-        </div>
-      </div>
+      <app-rt-article
+        img="../../assets/images/img_illustration_actu.svg"
+        titre="{{ titleActu1 }}"
+        date="{{ dateActu1 }}"
+        desc="{{ descActu1 }}"
+      ></app-rt-article>
+      <app-rt-article
+        img="../../assets/images/img_illustration_actu.svg"
+        titre="{{ titleActu2 }}"
+        date="{{ dateActu2 }}"
+        desc="{{ descActu2 }}"
+      ></app-rt-article>
+      <app-rt-article
+        img="../../assets/images/img_illustration_actu.svg"
+        titre="{{ titleActu3 }}"
+        date="{{ dateActu3 }}"
+        desc="{{ descActu3 }}"
+      ></app-rt-article>
+      <app-rt-article
+        img="../../assets/images/img_illustration_actu.svg"
+        titre="{{ titleActu4 }}"
+        date="{{ dateActu4 }}"
+        desc="{{ descActu4 }}"
+      ></app-rt-article>
     </div>
-    <button class="btn-primary mt-20">Toutes nos actualités</button>
+    <app-rt-button text="{{ allActu }}"></app-rt-button>
   </div>
   <div
     class="container container-fonctionnement d-flex justify-content-space-between align-center"
@@ -322,14 +176,13 @@
       <img src="./../../assets/images/img_illustration_fonctionnement.svg" />
     </div>
     <div class="wrapper-fonctionnement">
-      <h2>Comment ça marche ?</h2>
+      <h2>{{ titleHowWorkIt }}</h2>
       <div class="item-fonctionnement d-flex align-start">
         <img class="mr-10" src="./../../assets/icons/icon_rooots.svg" />
         <div class="content-fonctionnement">
           <p class="item-number">01</p>
           <p>
-            Découvrez une variété de matériaux éco-responsables soigneusement
-            sélectionnés.
+            {{ descHowWorkIt1 }}
           </p>
         </div>
       </div>
@@ -338,8 +191,7 @@
         <div class="content-fonctionnement">
           <p class="item-number">02</p>
           <p>
-            Utilisez nos outils de filtrage pour trouver rapidement les produits
-            adaptés à vos besoins.
+            {{ descHowWorkIt2 }}
           </p>
         </div>
       </div>
@@ -348,8 +200,7 @@
         <div class="content-fonctionnement">
           <p class="item-number">03</p>
           <p>
-            Ajoutez les produits à votre panier et finalisez votre commande en
-            toute confiance.
+            {{ descHowWorkIt3 }}
           </p>
         </div>
       </div>
@@ -358,16 +209,15 @@
         <div class="content-fonctionnement">
           <p class="item-number">04</p>
           <p>
-            Restez informé(e) de l'avancement de votre commande jusqu'à la
-            livraison à votre entreprise.
+            {{ descHowWorkIt4 }}
           </p>
         </div>
       </div>
     </div>
   </div>
-  <div class="container-left d-flex flex-column m-ver-50">
-    <div class="d-flex pr-5rem justify-content-space-between">
-      <h2>Rejoignez une communauté d'entreprises satisfaites</h2>
+  <div class="container container-commu d-flex flex-column">
+    <div class="d-flex justify-content-space-between">
+      <h2>{{ titleCommu }}</h2>
       <div>
         <img
           src="./../../assets/icons/icon_slider_arrow.svg"
@@ -383,192 +233,98 @@
         />
       </div>
     </div>
-
     <div class="wrapper-commu d-flex">
       <div class="content-commu d-flex flex-column">
         <p>
-          Les témoignages de nos clients témoignent de leur satisfaction et des
-          avantages concrets qu'ils ont tirés de l'utilisation de notre
-          plateforme. Rejoignez-les et découvrez comment notre marketplace peut
-          vous aider à faire le bon choix pour votre entreprise éco-responsable.
+          {{ paraCommu }}
         </p>
-        <button class="btn-primary m-ver-20">Rejoindre</button>
+        <app-rt-button
+          class="m-ver-20"
+          text="{{ btnJoinCommu }}"
+        ></app-rt-button>
       </div>
       <div class="slider-commu">
         <swiper-container
           pagination="true"
           pagination-clickable="true"
           lazy="true"
-          slides-per-view="3.33"
+          slides-per-view="3"
           slides-per-group="3"
           class="swiper-container"
           loop="true"
           #swiperCommu
         >
           <swiper-slide>
-            <div
-              class="card-commu d-flex flex-column justify-content-space-between"
-            >
-              <p class="avis-user">
-                La plateforme nous a aidés à soutenir les fournisseurs locaux et
-                à renforcer notre image de marque éco-responsable.
-              </p>
-
-              <div class="footer-card-commu d-flex align-center flex-column">
-                <div class="container-img-commu">
-                  <img src="./../../assets/images/avis_example_1.svg" alt="" />
-                </div>
-                <h3 class="title-card">Thomas</h3>
-                <p>Gérant d'une PME de mobilier design</p>
-              </div>
-            </div>
+            <app-rt-testimonial-card
+              desc="{{ descAvis1 }}"
+              situation="{{ situationAvis1 }}"
+              nom="{{ nomAvis1 }}"
+              img="../../assets/images/avis_example_1.svg"
+            ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
-            <div
-              class="card-commu d-flex flex-column justify-content-space-between"
-            >
-              <p class="avis-user">
-                Grâce à cette plateforme, nous avons trouvé des matières
-                premières éco-responsables de haute qualité, renforçant notre
-                engagement envers la durabilité.
-              </p>
-
-              <div class="footer-card-commu d-flex align-center flex-column">
-                <div class="container-img-commu">
-                  <img src="./../../assets/images/avis_example_2.svg" alt="" />
-                </div>
-                <h3 class="title-card">Bastien</h3>
-                <p>Fondateur d’une PME de mode éthique</p>
-              </div>
-            </div>
+            <app-rt-testimonial-card
+              desc="{{ descAvis2 }}"
+              situation="{{ situationAvis2 }}"
+              nom="{{ nomAvis2 }}"
+              img="../../assets/images/avis_example_2.svg"
+            ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
-            <div
-              class="card-commu d-flex flex-column justify-content-space-between"
-            >
-              <p class="avis-user">
-                La facilité d'utilisation et les outils de filtrage nous ont
-                permis de trouver rapidement les produits adaptés à nos besoins.
-              </p>
-
-              <div class="footer-card-commu d-flex align-center flex-column">
-                <div class="container-img-commu">
-                  <img src="./../../assets/images/avis_example_3.svg" alt="" />
-                </div>
-                <h3 class="title-card">Clara</h3>
-                <p>Responsable des achats d'une PME alimentaire bio</p>
-              </div>
-            </div>
+            <app-rt-testimonial-card
+              desc="{{ descAvis3 }}"
+              situation="{{ situationAvis3 }}"
+              nom="{{ nomAvis3 }}"
+              img="../../assets/images/avis_example_3.svg"
+            ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
-            <div
-              class="card-commu d-flex flex-column justify-content-space-between"
-            >
-              <p class="avis-user">
-                La plateforme nous a aidés à soutenir les fournisseurs locaux et
-                à renforcer notre image de marque éco-responsable.
-              </p>
-
-              <div class="footer-card-commu d-flex align-center flex-column">
-                <div class="container-img-commu">
-                  <img src="./../../assets/images/avis_example_1.svg" alt="" />
-                </div>
-                <h3 class="title-card">Thomas</h3>
-                <p>Gérant d'une PME de mobilier design</p>
-              </div>
-            </div>
+            <app-rt-testimonial-card
+              desc="{{ descAvis1 }}"
+              situation="{{ situationAvis1 }}"
+              nom="{{ nomAvis1 }}"
+              img="../../assets/images/avis_example_1.svg"
+            ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
-            <div
-              class="card-commu d-flex flex-column justify-content-space-between"
-            >
-              <p class="avis-user">
-                Grâce à cette plateforme, nous avons trouvé des matières
-                premières éco-responsables de haute qualité, renforçant notre
-                engagement envers la durabilité.
-              </p>
-
-              <div class="footer-card-commu d-flex align-center flex-column">
-                <div class="container-img-commu">
-                  <img src="./../../assets/images/avis_example_2.svg" alt="" />
-                </div>
-                <h3 class="title-card">Bastien</h3>
-                <p>Fondateur d’une PME de mode éthique</p>
-              </div>
-            </div>
+            <app-rt-testimonial-card
+              desc="{{ descAvis2 }}"
+              situation="{{ situationAvis2 }}"
+              nom="{{ nomAvis2 }}"
+              img="../../assets/images/avis_example_2.svg"
+            ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
-            <div
-              class="card-commu d-flex flex-column justify-content-space-between"
-            >
-              <p class="avis-user">
-                La facilité d'utilisation et les outils de filtrage nous ont
-                permis de trouver rapidement les produits adaptés à nos besoins.
-              </p>
-
-              <div class="footer-card-commu d-flex align-center flex-column">
-                <div class="container-img-commu">
-                  <img src="./../../assets/images/avis_example_3.svg" alt="" />
-                </div>
-                <h3 class="title-card">Clara</h3>
-                <p>Responsable des achats d'une PME alimentaire bio</p>
-              </div>
-            </div>
+            <app-rt-testimonial-card
+              desc="{{ descAvis3 }}"
+              situation="{{ situationAvis3 }}"
+              nom="{{ nomAvis3 }}"
+              img="../../assets/images/avis_example_3.svg"
+            ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
-            <div
-              class="card-commu d-flex flex-column justify-content-space-between"
-            >
-              <p class="avis-user">
-                La plateforme nous a aidés à soutenir les fournisseurs locaux et
-                à renforcer notre image de marque éco-responsable.
-              </p>
-
-              <div class="footer-card-commu d-flex align-center flex-column">
-                <div class="container-img-commu">
-                  <img src="./../../assets/images/avis_example_1.svg" alt="" />
-                </div>
-                <h3 class="title-card">Thomas</h3>
-                <p>Gérant d'une PME de mobilier design</p>
-              </div>
-            </div>
+            <app-rt-testimonial-card
+              desc="{{ descAvis1 }}"
+              situation="{{ situationAvis1 }}"
+              nom="{{ nomAvis1 }}"
+              img="../../assets/images/avis_example_1.svg"
+            ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
-            <div
-              class="card-commu d-flex flex-column justify-content-space-between"
-            >
-              <p class="avis-user">
-                Grâce à cette plateforme, nous avons trouvé des matières
-                premières éco-responsables de haute qualité, renforçant notre
-                engagement envers la durabilité.
-              </p>
-
-              <div class="footer-card-commu d-flex align-center flex-column">
-                <div class="container-img-commu">
-                  <img src="./../../assets/images/avis_example_2.svg" alt="" />
-                </div>
-                <h3 class="title-card">Bastien</h3>
-                <p>Fondateur d’une PME de mode éthique</p>
-              </div>
-            </div>
+            <app-rt-testimonial-card
+              desc="{{ descAvis2 }}"
+              situation="{{ situationAvis2 }}"
+              nom="{{ nomAvis2 }}"
+              img="../../assets/images/avis_example_2.svg"
+            ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
-            <div
-              class="card-commu d-flex flex-column justify-content-space-between"
-            >
-              <p class="avis-user">
-                La facilité d'utilisation et les outils de filtrage nous ont
-                permis de trouver rapidement les produits adaptés à nos besoins.
-              </p>
-
-              <div class="footer-card-commu d-flex align-center flex-column">
-                <div class="container-img-commu">
-                  <img src="./../../assets/images/avis_example_3.svg" alt="" />
-                </div>
-                <h3 class="title-card">Clara</h3>
-                <p>Responsable des achats d'une PME alimentaire bio</p>
-              </div>
-            </div>
+            <app-rt-testimonial-card
+              desc="{{ descAvis3 }}"
+              situation="{{ situationAvis3 }}"
+              nom="{{ nomAvis3 }}"
+              img="../../assets/images/avis_example_3.svg"
+            ></app-rt-testimonial-card>
           </swiper-slide>
         </swiper-container>
       </div>

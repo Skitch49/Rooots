@@ -1,0 +1,22 @@
+li {
+  display: flex;
+  flex-direction: row;
+  width: 226px;
+  height: 43px;
+  top: 20px;
+  left: 20px;
+  border-radius: 3px;
+  color: #1d3048;
+  background-color: white;
+  &:hover {
+    background-color: #ecf0f3;
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
+  }
+  &:active {
+    background-color: #2c343e;
+    color: white;
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
+  }
+}
