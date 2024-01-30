@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: column;
   background-color: white;
+  cursor: pointer;
+  transition: .2s ease-in;
   figure {
     width: 296px;
     height: 212px;
@@ -25,4 +27,8 @@
       margin-bottom: 8px;
     }
   }
+}
+
+.card-actu:hover{
+  transform: scale(1.02);
 }

@@ -4,6 +4,8 @@
   flex-direction: column;
   width: 296px;
   height: 329px;
+  transition: .2s ease-in;
+  cursor: pointer;
   figure {
     width: 296px;
     height: 206px;
@@ -16,9 +18,13 @@
     }
   }
   h3 {
-    cursor: default;
+    cursor: pointer;
     padding: 24px;
     text-align: center;
     color: var(--secondary);
   }
+}
+
+.highlight-card:hover{
+  transform: scale(1.02);
 }

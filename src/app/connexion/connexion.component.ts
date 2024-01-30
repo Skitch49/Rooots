@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-connexion',
@@ -7,7 +9,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./connexion.component.scss'],
 })
 export class ConnexionComponent implements OnInit {
-  ngOnInit(): void {}
+
+
+
+  dataLoaded = false
+
+  constructor(){}
+
+  ngOnInit(): void {
+    this.dataLoaded = true    
+  }
+
 
   constructor(private fb: FormBuilder) {}
 
