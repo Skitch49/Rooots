@@ -158,10 +158,10 @@ export class HomeComponent {
       this.situationAvis3 = `Responsable des achats d'une PME alimentaire bio`;
       this.nomAvis3 = `Clara`;
     } else {
-      this.titleHome = 'English please';
-      this.endTitleHome = 'English please';
-      this.paraHome = 'English please';
-      this.buy = 'English please';
+      this.titleHome = 'Find the materials you need in a way that is';
+      this.endTitleHome = 'responsable';
+      this.paraHome = "Find ecoresponsable materials you need from europeans suppliers, and contribute to the creation of a solid future for your company and your planet.";
+      this.buy = 'Product list';
       this.hightlightCard1 = 'English please';
       this.hightlightCard2 = 'English please';
       this.hightlightCard3 = 'English please';
