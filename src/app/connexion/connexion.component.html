@@ -8,7 +8,9 @@
     <app-rt-nav-link leftIcon="arrow_back" text="retour"></app-rt-nav-link>
     <h1>Se connecter</h1>
     <h3>Connectez-vous pour accéder à votre compte</h3>
-    <div class="card-connexion d-flex flex-column">
+    <form class="card-connexion d-flex flex-column" (ngSubmit)="submit()" [formGroup]="form">
+
+
       <div class="item-connexion">
         <label class="d-flex flex-column" for="mail">
           Adresse mail
@@ -38,8 +40,7 @@
       <div class="item-connexion">
         <label for="remember" class="d-flex align-center">
           <app-rt-checkbox formControlName="remember"></app-rt-checkbox> Se
-          souvenir de moi</label
-        >
+          souvenir de moi</label>
       </div>
 
       <div class="item-connexion">
@@ -50,6 +51,6 @@
         <h3>Vous n'avez pas de compte ?</h3>
         <app-rt-button text="S'inscrire" class="item-connexion"></app-rt-button>
       </div>
-    </div>
+    </form>
   </div>
 </div>
