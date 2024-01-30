@@ -73,11 +73,10 @@ export class RtHeaderComponent implements OnInit {
       this.becomeSheller = 'Devenir vendeur';
     } else {
       this.connexionBtn = 'Login / inscription';
-      this.catalogue = 'English please';
-      this.whoAreYou = 'English please';
-      this.actu = 'English please';
-      this.connexionBtn = 'English please';
-      this.becomeSheller = 'English please';
+      this.catalogue = 'Product list';
+      this.whoAreYou = 'Who are we ?';
+      this.actu = 'News';
+      this.becomeSheller = 'Want to sell ?';
     }
   }
 
