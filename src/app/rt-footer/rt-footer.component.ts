@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { TranslateService } from '../services/translate.service';
 
 @Component({
@@ -7,6 +7,17 @@ import { TranslateService } from '../services/translate.service';
   styleUrls: ['./rt-footer.component.scss'],
 })
 export class FooterComponent {
+  public isMobile: boolean = false;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.detectScreenSize();
+  }
+
+  detectScreenSize() {
+    this.isMobile = window.innerWidth < 900;
+  }
+
   titleInfo = '';
   sitemap = '';
   titleLegislation = '';

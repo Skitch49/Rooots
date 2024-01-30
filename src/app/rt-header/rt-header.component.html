@@ -1,4 +1,5 @@
 <header
+  *ngIf="!isMobile"
   (scroll)="onscroll()"
   [ngClass]="navbarDisplay ? 'display' : 'not-display'"
 >
@@ -20,12 +21,16 @@
     <app-rt-language-dropdown></app-rt-language-dropdown>
   </div>
   <div class="footer-header">
-    <app-rt-nav-link
-      leftIcon="border_all"
-      text="{{ catalogue }}"
-      class="catalogue"
-      (click)="showSubMenu()"
-    ></app-rt-nav-link>
+    <li class="nav-link" (click)="showSubMenu()">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="{{ iconCatalogue }}"
+        fontIcon="{{ iconCatalogue }}"
+        class="leftIcon"
+      ></mat-icon>
+      {{ catalogue }}
+    </li>
+
     <figure>
       <img
         src="./../../assets/images/logo_rooots.svg"
@@ -43,31 +48,124 @@
       text="{{ becomeSheller }}"
     ></app-rt-nav-link>
   </div>
-  <div
-    class="submenu"
-    *ngIf="subMenuVisible"
-  >
-    <ul
-      class="left-submenu flex-column"
-      [ngClass]="{ 'submenu-visible': subMenuVisible }"
-    >
+  <div class="submenu" *ngIf="subMenuVisible">
+    <ul class="first-submenu flex-column">
       <li
-        class="item-left-submenu"
+        class="item-first-submenu"
         *ngFor="let cat of categories"
         [value]="cat"
       >
         <p>{{ cat.name }}</p>
         <img src="../../assets/icons/icon_menu_arrow.svg" />
-        <ul class="right-submenu">
+        <ul class="second-submenu flex-column">
           <li
+            class="item-second-submenu"
             *ngFor="let subcategories of cat.subcategories"
             [value]="subcategories"
-            [routerLink]="[cat.name, subcategories.name]"
           >
-            <img src="{{ subcategories.img }}" />
-            <h4>{{ subcategories.name }}</h4>
+            <p>{{ subcategories.name }}</p>
+            <img src="../../assets/icons/icon_menu_arrow.svg" />
+            <ul class="right-submenu">
+              <li
+                *ngFor="let mat of subcategories.materials"
+                [value]="mat"
+                [routerLink]="[subcategories.name, mat.name]"
+              >
+                <img src="{{ mat.img }}" />
+                <h4>{{ mat.name }}</h4>
+              </li>
+            </ul>
           </li>
         </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<header
+  *ngIf="isMobile"
+  (scroll)="onscroll()"
+  [ngClass]="navbarDisplay ? 'display' : 'not-display'"
+>
+  <div class="top-header d-flex justify-content-space-between">
+    <figure>
+      <img
+        src="./../../assets/images/white_logo_rooots.svg"
+        routerLink="/"
+        alt="Logo Rooots"
+      />
+    </figure>
+    <app-rt-button
+      type="quaternary"
+      size="big"
+      text="{{ connexionBtn }}"
+      *ngIf="!connexion"
+    ></app-rt-button>
+    <app-rt-button
+      (click)="_translator.getTranslation('fr')"
+      type="quaternary"
+      size="big"
+      leftIcon="person_outline"
+      text="{{ Username }}"
+      *ngIf="connexion"
+    ></app-rt-button>
+  </div>
+  <div class="footer-header">
+    <app-rt-button
+      leftIcon="{{ burgerMenuIcon }}"
+      text=""
+      type="tertiary"
+      (click)="showSubMenu()"
+    ></app-rt-button>
+    <app-rt-search-bar></app-rt-search-bar>
+  </div>
+
+  <div class="submenu" *ngIf="subMenuVisible">
+    <h3 *ngIf="currentStep === 1">Menu principal</h3>
+    <h3 *ngIf="currentStep !== 1" (click)="currentStep = currentStep - 1">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="arrow_back"
+        fontIcon="arrow_back"
+        class="leftIcon"
+      ></mat-icon
+      >Retour
+    </h3>
+    <ul class="first-submenu flex-column" *ngIf="currentStep === 1">
+      <!-- Première étape -->
+      <li
+        class="item-first-submenu"
+        *ngFor="let cat of categories"
+        [value]="cat"
+        (click)="nextStep(cat)"
+      >
+        <p>{{ cat.name }}</p>
+        <img src="../../assets/icons/icon_menu_arrow.svg" />
+      </li>
+    </ul>
+    <ul class="first-submenu flex-column" *ngIf="currentStep === 2">
+      <!-- Deuxième étape -->
+      <li
+        class="item-first-submenu"
+        *ngFor="let subcategories of selectedCategory.subcategories"
+        [value]="subcategories"
+        (click)="nextStep(subcategories)"
+      >
+        <p>{{ subcategories.name }}</p>
+        <img src="../../assets/icons/icon_menu_arrow.svg" />
+      </li>
+    </ul>
+    <ul class="submenu-material" *ngIf="currentStep === 3">
+      <!-- Troisième étape -->
+      <h2>{{selectedSubcategory.name}}</h2>
+      <li
+      class="item-first-submenu"
+        *ngFor="let mat of selectedSubcategory.materials"
+        [value]="mat"
+        [routerLink]="[selectedSubcategory.name, mat.name]"
+        (click)="showSubMenu()"
+      >
+        <h4>{{ mat.name }}</h4>
       </li>
     </ul>
   </div>

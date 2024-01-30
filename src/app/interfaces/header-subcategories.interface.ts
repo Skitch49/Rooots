@@ -1,4 +1,6 @@
+import { Materials } from "./header-materials.interface";
+
 export interface Subcategories {
   name: string;
-  img: string;
+  materials: Materials[];
 }

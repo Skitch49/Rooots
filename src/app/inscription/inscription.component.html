@@ -1,0 +1,144 @@
+<div class="header-connexion d-flex align-center justify-content-center">
+  <figure>
+    <img src="./../../assets/images/logo_rooots.svg" alt="logo Rooots" />
+  </figure>
+</div>
+<div class="container-connexion d-flex justify-content-center align-center">
+  <div class="content-form d-flex flex-column">
+    <app-rt-nav-link leftIcon="arrow_back" text="retour"></app-rt-nav-link>
+    <h1>S'inscrire</h1>
+    <h3>Inscrivez-vous pour bénéficier de nos services</h3>
+    <div class="card-connexion d-flex flex-column">
+      <div class="item-connexion">
+        <label class="d-flex flex-column" for="mail">
+          Nom
+          <app-rt-input-text
+            placeholder="Entrez votre nom"
+            type="text"
+            formControlName="last-name"
+          ></app-rt-input-text>
+        </label>
+      </div>
+
+      <div class="item-connexion">
+        <label class="d-flex flex-column" for="mail">
+          Prénom
+          <app-rt-input-text
+            placeholder="Entrez votre prénom"
+            type="text"
+            formControlName="first-name"
+          ></app-rt-input-text>
+        </label>
+      </div>
+
+      <div class="item-connexion">
+        <label class="d-flex flex-column" for="mail">
+          Adresse mail
+          <app-rt-input-text
+            placeholder="Entrez votre adresse mail"
+            type="mail"
+            formControlName="mail"
+          ></app-rt-input-text>
+        </label>
+      </div>
+
+      <div class="item-connexion">
+        <label class="d-flex flex-column" for="mail">
+          Numéro de téléphone
+          <app-rt-input-text
+            placeholder="Entrez votre numéro de téléphone"
+            type="tel"
+            formControlName="tel"
+          ></app-rt-input-text>
+        </label>
+      </div>
+
+      <div class="item-connexion">
+        <label class="d-flex flex-column" for="mail">
+          Nom de l'entreprise
+          <app-rt-input-text
+            placeholder="Entrez votre nom de l'entreprise"
+            type="text"
+            formControlName="compagny"
+          ></app-rt-input-text>
+        </label>
+      </div>
+
+      <div class="item-connexion">
+        <label class="d-flex flex-column" for="mail">
+          Numéro SIRET
+          <app-rt-input-text
+            placeholder="Entrez votre numéro SIRET de votre entreprise"
+            type="text"
+            formControlName="SIRET"
+          ></app-rt-input-text>
+        </label>
+      </div>
+
+      <div class="item-connexion">
+        <label class="d-flex flex-column" for="mail">
+          Date de naissance
+          <app-rt-input-text
+            placeholder="_ _ / _ _ / _ _ _ _"
+            type="date"
+            formControlName="birthday"
+          ></app-rt-input-text>
+        </label>
+      </div>
+
+      <div class="item-connexion">
+        <label class="d-flex flex-column" for="mail">
+          Mot de passe
+          <app-rt-input-text
+            placeholder="Choisissez un mot de passe"
+            type="password"
+            formControlName="password"
+          ></app-rt-input-text>
+        </label>
+        <div class="item-info">
+          <p>Votre mot de passe doit contenir :</p>
+          <ul>
+            <li>au minimum 8 caractères</li>
+            <li>une minuscule</li>
+            <li>une majuscule</li>
+            <li>un chiffre</li>
+            <li>un caractère spécial &#91;&#93;&#40;&#41;&#33;_@&amp;#+-*</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item-connexion">
+        <label class="d-flex flex-column" for="mail">
+          Confirmer le mot de passe
+          <app-rt-input-text
+            placeholder="Entrez à nouveau le mot de passe"
+            type="password"
+            formControlName="confirm-password"
+          ></app-rt-input-text>
+        </label>
+      </div>
+
+      <div class="item-connexion">
+        <app-rt-button
+          text="Mot de passe oublié ?"
+          type="tertiary"
+        ></app-rt-button>
+      </div>
+      <div class="item-connexion">
+        <label for="remember" class="d-flex align-center">
+          <app-rt-checkbox formControlName="remember"></app-rt-checkbox> Se
+          souvenir de moi</label
+        >
+      </div>
+
+      <div class="item-connexion">
+        <app-rt-button text="Se connecter"></app-rt-button>
+      </div>
+
+      <div class="footer-form">
+        <h3>Vous n'avez pas de compte ?</h3>
+        <app-rt-button text="S'inscrire" class="item-connexion"></app-rt-button>
+      </div>
+    </div>
+  </div>
+</div>

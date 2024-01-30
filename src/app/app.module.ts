@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 //Component
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './rt-footer/rt-footer.component';
 import { SearchProductComponent } from './search-product/search-product.component';
 import { TestComponent } from './test/test.component';
@@ -35,6 +34,7 @@ import { RtSearchBarComponent } from './design-system/navigation/rt-search-bar/r
 import { RtHeaderComponent } from './rt-header/rt-header.component';
 import { RtInputTextComponent } from './design-system/navigation/rt-input-text/rt-input-text.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 // register Swiper custom elements
 register();
@@ -43,7 +43,6 @@ register();
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent,
     FooterComponent,
     TestComponent,
     SearchProductComponent,
@@ -64,6 +63,7 @@ register();
     RtHeaderComponent,
     RtInputTextComponent,
     ConnexionComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,

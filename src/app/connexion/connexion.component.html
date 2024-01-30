@@ -1,25 +1,55 @@
-<div class="container-connexion">
-  <app-rt-button text="Retour" type="tertiary"></app-rt-button>
-  <h1>Se connecter</h1>
-  <h3>Connectez-vous pour accéder à votre compte</h3>
-  <div class="card-connexion">
-    <label for="mail">
-      Adresse mail
-      <app-rt-input-text
-        placeholder="Entrez votre adresse mail"
-        type="email"
-        formControlName="email"
-      ></app-rt-input-text>
-    </label>
-    <label for="mail">
-      Mot de passe
-      <app-rt-input-text
-        placeholder="Entrez votre mot de passe"
-        formControlName="password"
-      ></app-rt-input-text>
-    </label>
-    <app-rt-button type="tertiary">Mot de passe oublié ?</app-rt-button>
-    <label for="remember"> <app-rt-checkbox formControlName="remember"></app-rt-checkbox>
-    Se souvenir de moi</label>
+<div class="header-connexion d-flex align-center justify-content-center">
+  <figure>
+    <img src="./../../assets/images/logo_rooots.svg" alt="logo Rooots" />
+  </figure>
+</div>
+<div class="container-connexion d-flex justify-content-center align-center">
+  <div class="content-form d-flex flex-column">
+    <app-rt-nav-link leftIcon="arrow_back" text="retour"></app-rt-nav-link>
+    <h1>Se connecter</h1>
+    <h3>Connectez-vous pour accéder à votre compte</h3>
+    <div class="card-connexion d-flex flex-column">
+      <div class="item-connexion">
+        <label class="d-flex flex-column" for="mail">
+          Adresse mail
+          <app-rt-input-text
+            placeholder="Entrez votre adresse mail"
+            type="email"
+            formControlName="email"
+          ></app-rt-input-text>
+        </label>
+      </div>
+
+      <div class="item-connexion">
+        <label class="d-flex flex-column" for="mail">
+          Mot de passe
+          <app-rt-input-text
+            placeholder="Entrez votre mot de passe"
+            formControlName="password"
+          ></app-rt-input-text>
+        </label>
+      </div>
+      <div class="item-connexion">
+        <app-rt-button
+          text="Mot de passe oublié ?"
+          type="tertiary"
+        ></app-rt-button>
+      </div>
+      <div class="item-connexion">
+        <label for="remember" class="d-flex align-center">
+          <app-rt-checkbox formControlName="remember"></app-rt-checkbox> Se
+          souvenir de moi</label
+        >
+      </div>
+
+      <div class="item-connexion">
+        <app-rt-button text="Se connecter"></app-rt-button>
+      </div>
+
+      <div class="footer-form">
+        <h3>Vous n'avez pas de compte ?</h3>
+        <app-rt-button text="S'inscrire" class="item-connexion"></app-rt-button>
+      </div>
+    </div>
   </div>
 </div>

@@ -6,7 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./rt-nav-link.component.scss']
 })
 export class RtNavLinkComponent {
-@Input() p : string = 'p-20'
 @Input() text : string = 'Default';
 @Input() link : string = '';
 @Input() leftIcon?: string;

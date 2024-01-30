@@ -1,0 +1,50 @@
+.header-connexion {
+  box-shadow: 0px 1px 4px 0px #1115190a;
+
+  box-shadow: 0px 4px 10px 0px #11151914;
+  figure {
+    padding: 27px 0;
+    img {
+      width: 100%;
+    }
+  }
+}
+.container-connexion {
+  background-color: var(--gray-background);
+  padding-top: 48px;
+  .content-form {
+    width: 50%;
+
+    h1 {
+      margin-bottom: 18px;
+      text-align: start;
+    }
+    h3 {
+      margin-bottom: 18px;
+    }
+    app-rt-nav-link {
+      margin-bottom: 32px;
+    }
+    .card-connexion {
+      background-color: white;
+      margin-bottom: 5rem;
+      padding: 48px;
+      .footer-form {
+        border-top: 1px solid #ccd3dc;
+        padding-top: 24px;
+      }
+      .item-connexion {
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  figure {
+    width: 15%;
+    img {
+      width: 100%;
+    }
+  }
+}

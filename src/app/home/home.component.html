@@ -20,6 +20,7 @@
   <div class="wrapper-cards">
     <div
       class="d-flex justify-content-space-between container-card container flex-wrap"
+      *ngIf="!isMobile"
     >
       <app-rt-hightlight-card
         img="../../assets/images/img_hightlight_1.svg"
@@ -38,12 +39,47 @@
         text="{{ hightlightCard4 }}"
       ></app-rt-hightlight-card>
     </div>
+
+    <div class="container-card container-left" *ngIf="isMobile">
+      <swiper-container
+        lazy="true"
+        slides-per-view="{{ slidesPerViewHightlight }}"
+        slides-per-group="1"
+        loop="true"
+        #swiperHightlight
+      >
+        <swiper-slide>
+          <app-rt-hightlight-card
+            img="../../assets/images/img_hightlight_1.svg"
+            text="{{ hightlightCard1 }}"
+          ></app-rt-hightlight-card>
+        </swiper-slide>
+        <swiper-slide>
+          <app-rt-hightlight-card
+            img="../../assets/images/img_hightlight_2.svg"
+            text="{{ hightlightCard2 }}"
+          ></app-rt-hightlight-card
+        ></swiper-slide>
+        <swiper-slide
+          ><app-rt-hightlight-card
+            img="../../assets/images/img_hightlight_3.svg"
+            text="{{ hightlightCard3 }}"
+          ></app-rt-hightlight-card
+        ></swiper-slide>
+        <swiper-slide>
+          <app-rt-hightlight-card
+            img="../../assets/images/img_hightlight_4.svg"
+            text="{{ hightlightCard4 }}"
+          ></app-rt-hightlight-card
+        ></swiper-slide>
+      </swiper-container>
+    </div>
   </div>
 
-  <div class="container container-position">
+  <div class="container container-position" *ngIf="!isMobile">
     <div class="d-flex justify-content-space-between">
       <h2 class="title-position">{{ titleProximity }}</h2>
-      <div>
+      <div *ngIf="!isMobile">
         <img
           src="./../../assets/icons/icon_slider_arrow.svg"
           alt="slide précédant"
@@ -74,7 +110,7 @@
           pagination="true"
           pagination-clickable="true"
           lazy="true"
-          slides-per-view="3"
+          [slides-per-view]="3"
           slides-per-group="3"
           loop="true"
           class="swiper-container"
@@ -89,6 +125,23 @@
           </swiper-slide>
         </swiper-container>
       </div>
+    </div>
+  </div>
+  <div class="container container-position" *ngIf="isMobile">
+    <div class="d-flex flex-column align-center">
+      <h2 class="title-position">{{ titleProximity }}</h2>
+      <p>
+        {{ descProximity }}
+      </p>
+      <app-rt-proximity-card
+        localisation="60"
+        img="../../assets/images/img_example_3.svg"
+        text="{{ textCardProximity }}"
+      ></app-rt-proximity-card>
+      <app-rt-button
+        class="m-ver-20"
+        text="{{ btnAllMaterials }}"
+      ></app-rt-button>
     </div>
   </div>
   <div class="container container-presentation d-flex align-center">
@@ -133,7 +186,10 @@
         </div>
       </div>
     </div>
-    <div class="illustration-presentation d-flex justify-content-flex-end">
+    <div
+      class="illustration-presentation d-flex justify-content-flex-end"
+      *ngIf="!isMobile"
+    >
       <img src="./../../assets/images/img_illustration_home.svg" alt="" />
     </div>
   </div>
@@ -149,30 +205,33 @@
         desc="{{ descActu1 }}"
       ></app-rt-article>
       <app-rt-article
+        *ngIf="!isMobile"
         img="../../assets/images/img_illustration_actu.svg"
         titre="{{ titleActu2 }}"
         date="{{ dateActu2 }}"
         desc="{{ descActu2 }}"
       ></app-rt-article>
       <app-rt-article
+        *ngIf="!isMobile"
         img="../../assets/images/img_illustration_actu.svg"
         titre="{{ titleActu3 }}"
         date="{{ dateActu3 }}"
         desc="{{ descActu3 }}"
       ></app-rt-article>
       <app-rt-article
+        *ngIf="!isMobile"
         img="../../assets/images/img_illustration_actu.svg"
         titre="{{ titleActu4 }}"
         date="{{ dateActu4 }}"
         desc="{{ descActu4 }}"
       ></app-rt-article>
     </div>
-    <app-rt-button text="{{ allActu }}"></app-rt-button>
+    <app-rt-button class="m-ver-20" text="{{ allActu }}"></app-rt-button>
   </div>
   <div
     class="container container-fonctionnement d-flex justify-content-space-between align-center"
   >
-    <div class="illustration-fonctionnement">
+    <div class="illustration-fonctionnement" *ngIf="!isMobile">
       <img src="./../../assets/images/img_illustration_fonctionnement.svg" />
     </div>
     <div class="wrapper-fonctionnement">
@@ -215,7 +274,7 @@
       </div>
     </div>
   </div>
-  <div class="container container-commu d-flex flex-column">
+  <div class="container container-commu d-flex flex-column" *ngIf="!isMobile">
     <div class="d-flex justify-content-space-between">
       <h2>{{ titleCommu }}</h2>
       <div>
@@ -233,7 +292,7 @@
         />
       </div>
     </div>
-    <div class="wrapper-commu d-flex">
+    <div class="wrapper-commu d-flex" *ngIf="!isMobile">
       <div class="content-commu d-flex flex-column">
         <p>
           {{ paraCommu }}
@@ -328,6 +387,21 @@
           </swiper-slide>
         </swiper-container>
       </div>
+    </div>
+  </div>
+  <div class="container container-commu d-flex flex-column" *ngIf="isMobile">
+    <div class="d-flex flex-column align-center">
+      <h2>{{ titleCommu }}</h2>
+      <p>
+        {{ paraCommu }}
+      </p>
+      <app-rt-testimonial-card
+        desc="{{ descAvis1 }}"
+        situation="{{ situationAvis1 }}"
+        nom="{{ nomAvis1 }}"
+        img="../../assets/images/avis_example_1.svg"
+      ></app-rt-testimonial-card>
+      <app-rt-button class="m-ver-20" text="{{ btnJoinCommu }}"></app-rt-button>
     </div>
   </div>
 </div>

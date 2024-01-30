@@ -42,7 +42,7 @@
     .content-position {
       width: 25%;
       padding-right: 32px;
-      p{
+      p {
         line-height: 24px;
       }
     }
@@ -52,14 +52,13 @@
     min-width: 0;
     .swiper-container {
       width: 100%;
-      .swiper-wrapper{
-        display: flex!important;
-        justify-content: space-between!important;
+      .swiper-wrapper {
+        display: flex !important;
+        justify-content: space-between !important;
       }
       swiper-slide {
         display: flex;
         justify-content: flex-end;
-    
       }
     }
   }
@@ -96,7 +95,7 @@ swiper-container::part(bullet-active) {
 }
 swiper-container::part(pagination) {
   text-align: end;
-  left: -72px!important;
+  left: -72px !important;
 }
 
 // Présentation
@@ -113,7 +112,7 @@ swiper-container::part(pagination) {
       .icon-presentation {
         width: 60px;
         height: 60px;
-        background: #CCD3DC;
+        background: #ccd3dc;
         border-radius: 50%;
         img {
           width: 24px;
@@ -127,7 +126,7 @@ swiper-container::part(pagination) {
 }
 
 // actu
-.container-actu{
+.container-actu {
   background-color: var(--gray-background);
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -153,7 +152,7 @@ swiper-container::part(pagination) {
   }
 }
 // commuslider-commu
-.container-commu{
+.container-commu {
   background-color: var(--gray-background);
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -169,9 +168,9 @@ swiper-container::part(pagination) {
     min-width: 0;
     .swiper-container {
       width: 100%;
-      .swiper-wrapper{
-        display: flex!important;
-        justify-content: space-between!important;
+      .swiper-wrapper {
+        display: flex !important;
+        justify-content: space-between !important;
       }
       swiper-slide {
         display: flex;
@@ -181,4 +180,18 @@ swiper-container::part(pagination) {
   }
 }
 
+@media screen and (max-width: 900px) {
+  .content-item-1 {
+    width: 90%!important;
+  }
+  .container-left {
+    padding-left: 20px;
+  }
 
+  .container-position {
+    p {
+      margin-bottom: 16px;
+      margin-top: 16px;
+    }
+  }
+}

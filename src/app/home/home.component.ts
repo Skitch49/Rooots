@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  HostListener,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -15,6 +16,22 @@ import { TranslateService } from '../services/translate.service';
 export class HomeComponent {
   @ViewChild('swiperPosition') swiperPosition: ElementRef | undefined;
   @ViewChild('swiperCommu') swiperCommu: ElementRef | undefined;
+  public isMobile: boolean = false;
+  public slidesPerViewHightlight: Number = 2;
+  @ViewChild('swiperHightlight') swiperHightlight: ElementRef | undefined;
+
+  // mobile version
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.detectScreenSize();
+  }
+
+  detectScreenSize() {
+    this.isMobile = window.innerWidth < 900;
+    if (window.innerWidth < 600) {
+      this.slidesPerViewHightlight = 2;
+    }
+  }
 
   titleHome = '';
   endTitleHome = '';

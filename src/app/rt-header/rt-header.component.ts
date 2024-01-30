@@ -9,8 +9,12 @@ import { HeaderCategories } from '../interfaces/header-categories.interface';
   styleUrls: ['./rt-header.component.scss'],
 })
 export class RtHeaderComponent implements OnInit {
-
+  public isMobile: boolean = false;
   public subMenuVisible: boolean = false;
+
+  public currentStep: number = 1;
+  public selectedCategory: any;
+  public selectedSubcategory: any;
 
   public connexion: boolean = false;
   navbarDisplay: boolean = true;
@@ -29,14 +33,26 @@ export class RtHeaderComponent implements OnInit {
     this.prevScrollPos = currentScrollPos;
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.detectScreenSize();
+  }
+
+  detectScreenSize() {
+    this.isMobile = window.innerWidth < 900;
+  }
+
   Username = 'Alexis';
   connexionBtn = '';
   whoAreYou = '';
   catalogue = '';
+  iconCatalogue = 'border_all';
+  burgerMenuIcon = 'menu';
   actu = '';
   becomeSheller = '';
   currentLangage: any = '';
   constructor(public _translator: TranslateService) {
+    this.detectScreenSize();
     this.currentLangage = localStorage.getItem('langage');
     if (this.currentLangage) {
       this._translator.getTranslation(this.currentLangage);
@@ -69,228 +85,205 @@ export class RtHeaderComponent implements OnInit {
 
   public showSubMenu() {
     this.subMenuVisible = !this.subMenuVisible;
+    if (this.subMenuVisible) {
+      this.iconCatalogue = 'close';
+      this.burgerMenuIcon = 'close';
+    } else {
+      this.iconCatalogue = 'border_all';
+      this.burgerMenuIcon = 'menu';
+      // Réinitialisez l'étape lorsque le menu est fermé
+    this.currentStep = 1;
+    }
+  }
+
+  public nextStep(category: any) {
+    // Gérez le passage à l'étape suivante ici
+    if (this.currentStep === 1) {
+      this.selectedCategory = category;
+      this.currentStep = 2;
+    } else if (this.currentStep === 2) {
+      this.selectedSubcategory = category;
+      this.currentStep = 3;
+    }
   }
 
   public categories: HeaderCategories[] = [
     {
-      name: 'Textile',
+      name: 'Les types de matières',
       subcategories: [
         {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
+          name: 'Matières naturelles',
+          materials: [
+            {
+              name: 'Bloom Foam ©',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Caoutchouc',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Chanvre',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Coton bio',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Cuir tanné végétal',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Fibre de ricin',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Jute',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Kapok',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Laine',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Lin',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Liège',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+          ],
         },
         {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
+          name: 'Matières synthétiques',
+          materials: [
+            {
+              name: 'Kapok',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Laine',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Lin',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Liège',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+          ],
         },
         {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
+          name: 'Matières recyclées',
+          materials: [
+            {
+              name: 'Bloom Foam ©',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Caoutchouc',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Chanvre',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Coton bio',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Cuir tanné végétal',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+          ],
         },
       ],
     },
     {
-      name: 'Cuir',
+      name: `Les types d'utilisation`,
       subcategories: [
         {
-          name: 'deux tissus',
-          img: '../../assets/images/img_example_tissus.svg',
+          name: 'Vetements',
+          materials: [
+            {
+              name: 'Bloom Foam ©',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Caoutchouc',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Chanvre',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Coton bio',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Cuir tanné végétal',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Fibre de ricin',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Jute',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Kapok',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Laine',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Lin',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Liège',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+          ],
         },
         {
-          name: 'deux tissus',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'deux tissus',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'deux tissus',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'deux tissus',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'deux tissus',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'deux tissus',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'deux tissus',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'deux tissus',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'deux tissus',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-      ],
-    },
-    {
-      name: 'Habillement',
-      subcategories: [
-        {
-          name: 'trois tissus',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'trois tissus',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'trois tissus',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'su su',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Suspendu',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Suspendu',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Suspendu',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'du du',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Durable',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Durable',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Durable',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-      ],
-    },
-    {
-      name: 'Nom de la catégorie',
-      subcategories: [
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-      ],
-    },
-    {
-      name: 'Nom de la catégorie',
-      subcategories: [
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-      ],
-    },
-    {
-      name: 'Nom de la catégorie',
-      subcategories: [
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
-        },
-        {
-          name: 'Tissus tissés',
-          img: '../../assets/images/img_example_tissus.svg',
+          name: 'Essuie tout',
+          materials: [
+            {
+              name: 'Bloom Foam ©',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Caoutchouc',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Chanvre',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Coton bio',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+            {
+              name: 'Cuir tanné végétal',
+              img: '../../assets/images/img_example_tissus.svg',
+            },
+          ],
         },
       ],
     },

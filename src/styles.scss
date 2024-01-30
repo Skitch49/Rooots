@@ -6,8 +6,8 @@
 :root {
   --primary: #068464;
   --secondary: #2b486c;
-  --accent : #034232;
-  --first-font-family: 'DM Sans', sans-serif;
+  --accent: #034232;
+  --first-font-family: "DM Sans", sans-serif;
   --secondary-font-family: "CoconPro-Regular Regular";
   --box-shadow: 0 1px 4px 0 #1115190a, 0 4px 10px 0 #11151914;
   --background-color: #fff;
@@ -19,8 +19,11 @@ body {
   font-family: var(--first-font-family);
   color: var(--secondary);
   height: max-content;
+  margin: 0;
+  padding: 0;
 }
-mat-icon, img{
+mat-icon,
+img {
   user-select: none;
 }
 ul {
@@ -31,6 +34,7 @@ ul {
 }
 
 h1 {
+  font-family: 'CoconPro';
   font-family: var(--secondary-font-family);
   font-size: 51px;
   font-weight: 700;
@@ -121,5 +125,28 @@ h3 {
 }
 .p-20 {
   padding: 20px;
+}
+
+@media screen and (max-width: "900px") {
+  h1{
+font-size: 28px;
+line-height: 34px;
+letter-spacing: 0px;
+text-align: center;
+
+  }
+  h2 {
+    font-family: "DM Sans";
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+}
+@media screen and (max-width: "500px") {
+  .container{
+    padding: 0;
+  }
 }
 
