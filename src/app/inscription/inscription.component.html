@@ -1,99 +1,146 @@
-<div class="header-connexion d-flex align-center justify-content-center">
+<div class="header-inscription d-flex align-center justify-content-center">
   <figure>
     <img src="./../../assets/images/logo_rooots.svg" alt="logo Rooots" />
   </figure>
 </div>
-<div class="container-connexion d-flex justify-content-center align-center">
+<div class="container-inscription d-flex justify-content-center align-center">
   <div class="content-form d-flex flex-column">
-    <app-rt-nav-link leftIcon="arrow_back" text="retour"></app-rt-nav-link>
+    <app-rt-nav-link
+      class="back"
+      leftIcon="arrow_back"
+      text="retour"
+    ></app-rt-nav-link>
     <h1>S'inscrire</h1>
     <h3>Inscrivez-vous pour bénéficier de nos services</h3>
-    <div class="card-connexion d-flex flex-column">
-      <div class="item-connexion">
-        <label class="d-flex flex-column" for="mail">
+    <form
+      class="card-inscription d-flex flex-column"
+      (ngSubmit)="submit()"
+      [formGroup]="form"
+    >
+      <div class="item-inscription">
+        <label [ngClass]="{'error-form': lastName!.errors && lastName!.touched  }" class="d-flex flex-column" for="lastName">
           Nom
-          <app-rt-input-text
+          <input
+            [ngClass]="{ 'error-input': lastName!.errors && lastName!.touched }"
             placeholder="Entrez votre nom"
             type="text"
-            formControlName="last-name"
-          ></app-rt-input-text>
+            name="lastName"
+            id="lastName"
+            formControlName="lastName"
+          />
         </label>
       </div>
 
-      <div class="item-connexion">
-        <label class="d-flex flex-column" for="mail">
+      <div class="item-inscription">
+        <label [ngClass]="{'error-form': firstName!.errors && firstName!.touched }" class="d-flex flex-column" for="firstName">
           Prénom
-          <app-rt-input-text
+          <input
+            [ngClass]="{
+              'error-input': firstName!.errors && firstName!.touched
+            }"
             placeholder="Entrez votre prénom"
             type="text"
-            formControlName="first-name"
-          ></app-rt-input-text>
+            name="firstName"
+            id="firstName"
+            formControlName="firstName"
+          />
         </label>
       </div>
 
-      <div class="item-connexion">
-        <label class="d-flex flex-column" for="mail">
+      <div class="item-inscription">
+        <label [ngClass]="{'error-form': userEmail!.errors && userEmail!.touched }" class="d-flex flex-column" for="userEmail">
           Adresse mail
-          <app-rt-input-text
+          <input
+            [ngClass]="{
+              'error-input': userEmail!.errors && userEmail!.touched
+            }"
             placeholder="Entrez votre adresse mail"
             type="mail"
-            formControlName="mail"
-          ></app-rt-input-text>
+            name="userEmail"
+            id="userEmail"
+            formControlName="userEmail"
+          />
         </label>
       </div>
 
-      <div class="item-connexion">
-        <label class="d-flex flex-column" for="mail">
+      <div class="item-inscription">
+        <label [ngClass]="{'error-form': userTel!.errors && userTel!.touched }" class="d-flex flex-column" for="userTel">
           Numéro de téléphone
-          <app-rt-input-text
+          <input
+            [ngClass]="{ 'error-input': userTel!.errors && userTel!.touched }"
             placeholder="Entrez votre numéro de téléphone"
             type="tel"
-            formControlName="tel"
-          ></app-rt-input-text>
+            name="userTel"
+            id="userTel"
+            maxlength="10"
+            formControlName="userTel"
+          />
         </label>
       </div>
 
-      <div class="item-connexion">
-        <label class="d-flex flex-column" for="mail">
+      <div class="item-inscription">
+        <label [ngClass]="{'error-form': compagny!.errors && compagny!.touched }" class="d-flex flex-column" for="compagny">
           Nom de l'entreprise
-          <app-rt-input-text
+          <input
+            [ngClass]="{ 'error-input': compagny!.errors && compagny!.touched }"
             placeholder="Entrez votre nom de l'entreprise"
             type="text"
+            name="compagny"
+            id="compagny"
             formControlName="compagny"
-          ></app-rt-input-text>
+          />
         </label>
       </div>
 
-      <div class="item-connexion">
-        <label class="d-flex flex-column" for="mail">
+      <div class="item-inscription">
+        <label  [ngClass]="{'error-form': SIRET!.errors && SIRET!.touched }" class="d-flex flex-column" for="SIRET">
           Numéro SIRET
-          <app-rt-input-text
+          <input
+            [ngClass]="{ 'error-input': SIRET!.errors && SIRET!.touched }"
             placeholder="Entrez votre numéro SIRET de votre entreprise"
             type="text"
+            name="SIRET"
+            id="SIRET"
+            maxlength="14"
             formControlName="SIRET"
-          ></app-rt-input-text>
+          />
         </label>
       </div>
 
-      <div class="item-connexion">
-        <label class="d-flex flex-column" for="mail">
+      <div class="item-inscription">
+        <label [ngClass]="{'error-form': userBirthday!.errors && userBirthday!.touched }" class="d-flex flex-column" for="userBirthday">
           Date de naissance
-          <app-rt-input-text
-            placeholder="_ _ / _ _ / _ _ _ _"
+          <input
+            [ngClass]="{
+              'error-input': userBirthday!.errors && userBirthday!.touched
+            }"
+            placeholder= "_ _ / _ _ / _ _ _ _"
             type="date"
-            formControlName="birthday"
-          ></app-rt-input-text>
+            name="userBirthday"
+            id="userBirthday"
+            formControlName="userBirthday"
+          />
         </label>
       </div>
 
-      <div class="item-connexion">
-        <label class="d-flex flex-column" for="mail">
+      <div class="item-inscription">
+        <label [ngClass]="{'error-form': (userPassword!.errors && userPassword!.touched)  || (form.errors?.['passwordMismatch'])}" class="d-flex flex-column" for="userPassword">
           Mot de passe
-          <app-rt-input-text
-            placeholder="Choisissez un mot de passe"
-            type="password"
-            formControlName="password"
-          ></app-rt-input-text>
+          <div class="container-view">
+            <input
+              [ngClass]="{
+                'error-input': (userPassword!.errors && userPassword!.touched) || (form.errors?.['passwordMismatch'])
+              }"
+              placeholder="Choisissez un mot de passe"
+              [type]="showUserPassword ? 'text' : 'password'"
+              name="userPassword"
+              id="userPassword"
+              formControlName="userPassword"
+            />
+            <i (click)="SeePassword('userPassword')"
+              ><img src="../../assets/icons/icon_view.svg"
+            /></i>
+          </div>
         </label>
         <div class="item-info">
           <p>Votre mot de passe doit contenir :</p>
@@ -107,38 +154,80 @@
         </div>
       </div>
 
-      <div class="item-connexion">
-        <label class="d-flex flex-column" for="mail">
-          Confirmer le mot de passe
-          <app-rt-input-text
-            placeholder="Entrez à nouveau le mot de passe"
-            type="password"
-            formControlName="confirm-password"
-          ></app-rt-input-text>
+      <div class="item-inscription">
+        <label [ngClass]="{'error-form': (confirmUserPassword!.errors && confirmUserPassword!.touched) || (form.errors?.['passwordMismatch'])}" class="d-flex flex-column" for="confirmUserPassword">
+          Confirmer le mot de passe 
+          <div class="container-view">
+            <input
+              [ngClass]="{
+                'error-input':
+                  (confirmUserPassword!.errors && confirmUserPassword!.touched) || (form.errors?.['passwordMismatch'])
+              }"
+              placeholder="Entrez à nouveau le mot de passe"
+              [type]="showConfirmUserPassword ? 'text' : 'password'"
+              name="confirmUserPassword"
+              id="confirmUserPassword"
+              formControlName="confirmUserPassword"
+            />
+            <i (click)="SeePassword('confirmUserPassword')"
+              ><img src="../../assets/icons/icon_view.svg"
+            /></i>
+          </div>
         </label>
       </div>
 
-      <div class="item-connexion">
-        <app-rt-button
-          text="Mot de passe oublié ?"
-          type="tertiary"
-        ></app-rt-button>
-      </div>
-      <div class="item-connexion">
-        <label for="remember" class="d-flex align-center">
-          <app-rt-checkbox formControlName="remember"></app-rt-checkbox> Se
-          souvenir de moi</label
+      <div class="item-inscription wrapper-checkbox">
+        <label [ngClass]="{'error-form': conditionsUtilisation!.errors && conditionsUtilisation!.touched }" for="conditions-utilisation" class="d-flex align-center">
+          <input
+            [ngClass]="{
+              'error-input':
+                conditionsUtilisation!.errors && conditionsUtilisation!.touched
+            }"
+            type="checkbox"
+            class="rt-checkbox"
+            formControlName="conditionsUtilisation"
+            id="conditions-utilisation"
+          />
+          <p>
+            J'ai lu et compris les
+            <span
+              class="conditions-utilisation"
+              routerLink="conditions-utilisation"
+            >
+              conditions d'utilisation</span
+            >.
+          </p></label
+        >
+        
+
+        <label for="actu" class="d-flex align-center">
+          <input
+            type="checkbox"
+            id="actu"
+            class="rt-checkbox"
+            formControlName="actuRooots"
+          />Je souhaite recevoir les actualités de Rooots par mail.</label
         >
       </div>
 
-      <div class="item-connexion">
-        <app-rt-button text="Se connecter"></app-rt-button>
+      <div class="item-inscription">
+        <input
+          type="submit"
+          name="submit"
+          class="rt-button rt-primary"
+          value="S'inscrire"
+        />
+        <p class="errors" *ngIf="form.errors?.['passwordMismatch'] && confirmUserPassword!.touched && userPassword!.touched">Les mots de passes ne sont pas identique !</p>
       </div>
 
       <div class="footer-form">
-        <h3>Vous n'avez pas de compte ?</h3>
-        <app-rt-button text="S'inscrire" class="item-connexion"></app-rt-button>
+        <h3>Vous avez déjà un compte ?</h3>
+        <app-rt-button
+          text="Se connecter"
+          class="item-inscription"
+          routerLink="/connexion"
+        ></app-rt-button>
       </div>
-    </div>
+    </form>
   </div>
 </div>

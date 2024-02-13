@@ -4,10 +4,12 @@ import { HomeComponent } from './home/home.component';
 import { SearchProductComponent } from './search-product/search-product.component';
 import { TestComponent } from './test/test.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [
   { path: 'test', component: TestComponent },
   { path: 'connexion', component: ConnexionComponent },
+  { path: 'inscription', component: InscriptionComponent },
   { path: 'search-product', component: SearchProductComponent },
   { path: ':categorie/:subcategorie', component: SearchProductComponent },
   { path: '**', component: HomeComponent },

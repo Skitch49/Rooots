@@ -6,5 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./rt-checkbox.component.scss'],
 })
 export class RtCheckboxComponent {
-  @Input() formControlName: string = 'name';
+  @Input() idCheckbox: string = 'default';
+
 }

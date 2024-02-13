@@ -42,7 +42,6 @@ export class FooterComponent {
   }
 
   updateLangage() {
-    console.log(this.currentLangage);
     if (this.currentLangage == 'fr') {
       this.titleInfo = 'Informations';
       this.sitemap = 'Plan du site';

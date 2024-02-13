@@ -64,7 +64,6 @@ export class RtHeaderComponent implements OnInit {
   }
 
   updateLangage() {
-    console.log(this.currentLangage);
     if (this.currentLangage == 'fr') {
       this.connexionBtn = "Se connecter / S'inscrire";
       this.catalogue = 'Catalogue';
@@ -105,9 +104,6 @@ export class RtHeaderComponent implements OnInit {
       this.currentStep = 3;
     }
   }
-
-
-
 
   public categories: HeaderCategories[] = [
     {

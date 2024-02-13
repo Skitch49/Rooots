@@ -1,0 +1,181 @@
+.header-inscription {
+  box-shadow: 0px 1px 4px 0px #1115190a;
+
+  box-shadow: 0px 4px 10px 0px #11151914;
+  figure {
+    padding: 27px 0;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+input {
+  border: 1px solid #97a3af;
+  padding: 12px;
+  border-radius: 3px;
+  width: 100%;
+  transition: border 0.4s ease;
+  &::placeholder {
+    color: #6c7d90;
+  }
+}
+.errors{
+  color: red;
+  margin-top: 8px;
+}
+.rt-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #97a3af;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  &:hover {
+    border: 1px solid #068464;
+    background: #cae1db;
+  }
+  &:checked {
+    background-color: #068464;
+    border-color: #068464;
+    color: white;
+    &:before {
+      content: "";
+      position: absolute;
+      right: 50%;
+      top: 50%;
+      width: 4px;
+      height: 10px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) translate(-50%, -50%);
+      z-index: 2;
+    }
+  }
+}
+
+.rt-button {
+  display: inline-flex; // flex problem width 100% screen
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  padding: 11.5px;
+  font-size: 14px;
+  font-weight: 400;
+  width: auto;
+}
+
+// Type
+.rt-primary {
+  background: #068464;
+  color: white;
+  border: 1px solid #068464;
+  &:hover {
+    background: #045c45;
+    border: 1px solid #045c45;
+  }
+  &:active {
+    background: #034232;
+    border: 1px solid #045c45;
+  }
+  &:disabled {
+    background: #ccd3dc;
+    border: 1px solid #ccd3dc;
+  }
+}
+
+.container-inscription {
+  background-color: var(--gray-background);
+  padding-top: 48px;
+  .content-form {
+    width: 50%;
+    .back {
+      display: flex;
+    }
+    h1 {
+      margin-bottom: 18px;
+      text-align: start;
+    }
+    h3 {
+      margin-bottom: 18px;
+    }
+    app-rt-nav-link {
+      margin-bottom: 32px;
+    }
+    .card-inscription {
+      background-color: white;
+      margin-bottom: 5rem;
+      padding: 48px;
+      .footer-form {
+        border-top: 1px solid #ccd3dc;
+        padding-top: 24px;
+      }
+      .item-inscription {
+        margin-bottom: 24px;
+        label {
+          transition: color 0.4s ease;
+        }
+        .error-form {
+          color: red;
+        }
+        .error-input {
+          border: 1px solid red;
+        }
+        .conditions-utilisation {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+        .item-info {
+          color: #6c7d90;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 21px;
+          letter-spacing: 0em;
+          ul {
+            list-style: inside;
+          }
+        }
+        .container-view {
+          display: flex;
+          align-items: center;
+          position: relative;
+          i {
+            width: 24px;
+            margin-right: 8px;
+            position: absolute;
+            right: 0;
+            display: flex;
+            cursor: pointer;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+      .wrapper-checkbox {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  figure {
+    width: 15%;
+    img {
+      width: 100%;
+    }
+  }
+}

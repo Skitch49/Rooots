@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class RtInputTextComponent {
 @Input() type: string = "text";
+@Input () valueInput: string = "";
+@Input () name: string = "default";
 @Input() placeholder: string = "Entrez votre adresse mail";
-@Input() formControlName: string = "nom";
 }

@@ -42,10 +42,8 @@
 
     <div class="container-card container-left" *ngIf="isMobile">
       <swiper-container
-        lazy="true"
-        slides-per-view="{{ slidesPerViewHightlight }}"
-        slides-per-group="1"
-        loop="true"
+        [config]="swiperConfig"
+        appSwiper
         #swiperHightlight
       >
         <swiper-slide>
@@ -107,13 +105,9 @@
       </div>
       <div class="d-flex slider-position">
         <swiper-container
-          pagination="true"
-          pagination-clickable="true"
-          lazy="true"
-          [slides-per-view]="3"
-          slides-per-group="3"
-          loop="true"
           class="swiper-container"
+          [config]="swiperConfig"
+          appSwiper
           #swiperPosition
         >
           <swiper-slide *ngFor="let i of [].constructor(9).keys()">
@@ -304,13 +298,10 @@
       </div>
       <div class="slider-commu">
         <swiper-container
-          pagination="true"
-          pagination-clickable="true"
-          lazy="true"
-          slides-per-view="3"
-          slides-per-group="3"
           class="swiper-container"
-          loop="true"
+
+          [config]="swiperConfig"
+          appSwiper
           #swiperCommu
         >
           <swiper-slide>
