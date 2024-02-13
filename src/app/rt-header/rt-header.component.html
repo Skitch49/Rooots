@@ -1,5 +1,6 @@
 <header
   *ngIf="!isMobile"
+  (scroll)="onscroll()"
   [ngClass]="navbarDisplay ? 'display' : 'not-display'"
 >
   <div class="top-header">
@@ -8,6 +9,7 @@
       size="big"
       text="{{ connexionBtn }}"
       *ngIf="!connexion"
+      routerLink="connexion"
     ></app-rt-button>
     <app-rt-button
       (click)="_translator.getTranslation('fr')"
@@ -83,6 +85,7 @@
 
 <header
   *ngIf="isMobile"
+  (scroll)="onscroll()"
   [ngClass]="navbarDisplay ? 'display' : 'not-display'"
 >
   <div class="top-header d-flex justify-content-space-between">

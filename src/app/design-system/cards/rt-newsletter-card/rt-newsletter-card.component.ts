@@ -17,7 +17,6 @@ export class RtNewsletterCardComponent {
     if (this.currentLangage) {
       this._translator.getTranslation(this.currentLangage);
     }
-    console.log(this.currentLangage);
     this._translator.translator.subscribe((response) => {
       this.currentLangage = response;
       this.updateLangage();
@@ -25,7 +24,6 @@ export class RtNewsletterCardComponent {
   }
 
   updateLangage() {
-    console.log(this.currentLangage);
     if (this.currentLangage == 'fr') {
       this.titleCard = 'Abonnez-vous à la newsletter';
       this.paraCard = `Recevez les actualités durables et les offres exclusives en vous

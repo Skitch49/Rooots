@@ -16,7 +16,6 @@ export class RtSearchBarComponent {
     if (this.currentLangage) {
       this._translator.getTranslation(this.currentLangage);
     }
-    console.log(this.currentLangage);
     this._translator.translator.subscribe((response) => {
       this.currentLangage = response;
       this.updateLangage();
@@ -24,7 +23,6 @@ export class RtSearchBarComponent {
   }
 
   updateLangage() {
-    console.log(this.currentLangage);
     if (this.currentLangage == 'fr') {
       this.placeholder = 'Recherche';
     } else {

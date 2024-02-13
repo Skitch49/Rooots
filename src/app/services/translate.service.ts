@@ -14,7 +14,6 @@ export class TranslateService {
 
 
   getTranslation(lang: string) {
-    console.log(lang);
     localStorage.setItem('langage', lang);
     this.translatorSubject.next(lang);
   }

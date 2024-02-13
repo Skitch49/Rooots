@@ -5,8 +5,9 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { register } from 'swiper/element';
+import { SwiperContainer, register } from 'swiper/element';
 import { TranslateService } from '../services/translate.service';
+import { SwiperOptions } from 'swiper/types';
 
 @Component({
   selector: 'app-home',
@@ -14,12 +15,47 @@ import { TranslateService } from '../services/translate.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  @ViewChild('swiperPosition') swiperPosition: ElementRef | undefined;
-  @ViewChild('swiperCommu') swiperCommu: ElementRef | undefined;
+  @ViewChild('swiperPosition') swiperPosition!: ElementRef<SwiperContainer>;
+  @ViewChild('swiperCommu') swiperCommu!: ElementRef<SwiperContainer>;
   public isMobile: boolean = false;
   public slidesPerViewHightlight: Number = 2;
   @ViewChild('swiperHightlight') swiperHightlight: ElementRef | undefined;
 
+
+    // Swiper
+    swiperConfig: SwiperOptions = {
+      slidesPerView: 3,
+  
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+      },
+
+  
+      loop: true,
+  
+      slidesPerGroup: 3,
+      // Responsive breakpoints
+      breakpoints: {
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+        },
+        // when window width is >= 480px
+        480: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+        },
+
+        1350: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+        },
+      },
+    };
+    
   // mobile version
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -99,7 +135,6 @@ export class HomeComponent {
   }
 
   updateLangage() {
-    console.log(this.currentLangage);
     if (this.currentLangage == 'fr') {
       this.titleHome = 'Trouvez les matériaux de votre succès';
       this.endTitleHome = 'responsable';

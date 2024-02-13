@@ -5,30 +5,49 @@
 </div>
 <div class="container-connexion d-flex justify-content-center align-center">
   <div class="content-form d-flex flex-column">
-    <app-rt-nav-link leftIcon="arrow_back" text="retour"></app-rt-nav-link>
-    <h1>Se connecter</h1>
+    <app-rt-nav-link
+      class="back"
+      leftIcon="arrow_back"
+      text="retour"
+    ></app-rt-nav-link>
+    <h1>Se connecter !</h1>
     <h3>Connectez-vous pour accéder à votre compte</h3>
-    <form class="card-connexion d-flex flex-column" (ngSubmit)="submit()" [formGroup]="form">
 
-
+    <form class="card-connexion d-flex flex-column" (ngSubmit)="submit()" [formGroup]="form" >
+      <div *ngIf="submitForm && form.valid == false" class="error-form">
+        <h3>Email ou Mot de passe incorrect !</h3>
+      </div>
       <div class="item-connexion">
-        <label class="d-flex flex-column" for="mail">
+        <label [ngClass]="{'error-form': (submitForm && !form.valid) }" class="d-flex flex-column" for="mail">
           Adresse mail
-          <app-rt-input-text
+          <input
+          [ngClass]="{'error-input': submitForm && !form.valid || (userEmail!.errors && userEmail!.touched)}"
             placeholder="Entrez votre adresse mail"
+            name="userEmail"
             type="email"
-            formControlName="email"
-          ></app-rt-input-text>
+            id="mail"
+            formControlName="userEmail"
+          />
         </label>
       </div>
 
       <div class="item-connexion">
-        <label class="d-flex flex-column" for="mail">
+        <label [ngClass]="{'error-form': submitForm && !form.valid}" class="d-flex flex-column" for="password">
           Mot de passe
-          <app-rt-input-text
-            placeholder="Entrez votre mot de passe"
-            formControlName="password"
-          ></app-rt-input-text>
+          <div class="container-view">
+            <input
+            [ngClass]="{'error-input': submitForm && !form.valid || (userPassword!.errors && userPassword!.touched)}"
+
+              placeholder="Entrez votre mot de passe"
+              name="userPassword"
+              [type]="showUserPassword ? 'text' : 'password'"
+              id="password"
+              formControlName="userPassword"
+            />
+            <i (click)="SeePassword('confirmUserPassword')"
+              ><img src="../../assets/icons/icon_view.svg"
+            /></i>
+          </div>
         </label>
       </div>
       <div class="item-connexion">
@@ -38,18 +57,34 @@
         ></app-rt-button>
       </div>
       <div class="item-connexion">
-        <label for="remember" class="d-flex align-center">
-          <app-rt-checkbox formControlName="remember"></app-rt-checkbox> Se
-          souvenir de moi</label>
+        <label for="rememberMe"  class="d-flex align-center">
+          <input
+            type="checkbox"
+            id="rememberMe"
+            class="rt-checkbox"
+            formControlName="rememberMe"
+          /> Se souvenir de
+          moi</label
+        >
       </div>
 
       <div class="item-connexion">
-        <app-rt-button text="Se connecter"></app-rt-button>
+        <input
+          type="submit"
+          name="submit"
+          class="rt-button rt-primary"
+          value="Se connecter"
+        />
       </div>
+
 
       <div class="footer-form">
         <h3>Vous n'avez pas de compte ?</h3>
-        <app-rt-button text="S'inscrire" class="item-connexion"></app-rt-button>
+        <app-rt-button
+          text="S'inscrire"
+          class="item-connexion"
+          routerLink="/inscription"
+        ></app-rt-button>
       </div>
     </form>
   </div>

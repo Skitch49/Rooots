@@ -12,7 +12,6 @@ export class RtLanguageDropdownComponent {
   constructor(public _translator: TranslateService) {
     this.currentLangage = localStorage.getItem('langage') || 'fr'; // Valeur par défaut 'fr'
     this._translator.getTranslation(this.currentLangage);
-    console.log(this.currentLangage);
     this._translator.translator.subscribe((response) => {
       this.currentLangage = response;
       this.updateLangage();
@@ -20,6 +19,5 @@ export class RtLanguageDropdownComponent {
   }
 
   updateLangage() {
-    console.log(this.currentLangage);
   }
 }
