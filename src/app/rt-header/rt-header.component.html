@@ -1,7 +1,7 @@
 <header
   *ngIf="!isMobile"
   (scroll)="onscroll()"
-  [ngClass]="navbarDisplay ? 'display' : 'not-display'"
+  [ngClass]="navbarDisplay ? 'display-menu' : 'not-display-menu'"
 >
   <div class="top-header">
     <app-rt-button
@@ -86,7 +86,7 @@
 <header
   *ngIf="isMobile"
   (scroll)="onscroll()"
-  [ngClass]="navbarDisplay ? 'display' : 'not-display'"
+  [ngClass]="navbarDisplay ? 'display-menu' : 'not-display-menu'"
 >
   <div class="top-header d-flex justify-content-space-between">
     <figure>
