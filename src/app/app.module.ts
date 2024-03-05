@@ -36,6 +36,7 @@ import { RtInputTextComponent } from './design-system/navigation/rt-input-text/r
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { SwiperDirective } from './shared/directives/swiper.directive';
+import { ProductComponent } from './product/product.component';
 
 // register Swiper custom elements
 register();
@@ -66,6 +67,7 @@ register();
     ConnexionComponent,
     InscriptionComponent,
     SwiperDirective,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,

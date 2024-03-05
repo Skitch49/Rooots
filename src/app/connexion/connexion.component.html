@@ -45,8 +45,10 @@
               formControlName="userPassword"
             />
             <i (click)="SeePassword('confirmUserPassword')"
-              ><img src="../../assets/icons/icon_view.svg"
-            /></i>
+              >
+              <img *ngIf="!showUserPassword" src="../../assets/icons/icon_view.svg"/>
+              <img *ngIf="showUserPassword" src="../../assets/icons/icon_eye.svg"/>
+            </i>
           </div>
         </label>
       </div>
