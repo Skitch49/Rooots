@@ -68,70 +68,72 @@
   </div>
 </div>
 
-<div class="container container-footer" *ngIf="isMobile">
+<div class="container-footer" *ngIf="isMobile">
   <app-rt-newsletter-card></app-rt-newsletter-card>
-  <div class="top-footer d-flex flex-column">
-    <div class="item-footer d-flex flex-column">
-      <img id="logo" src="./../../assets/images/logo_rooots.svg" />
-      <div class="container-social-media">
-        <a href=""
-          ><img src="../../assets/icons/icon_facebook.svg" alt="Facebook"
-        /></a>
-        <a href=""
-          ><img src="../../assets/icons/icon_linkedin.svg" alt="Linkedin"
-        /></a>
-        <a href="">
-          <img src="../../assets/icons/icon_instagram.svg" alt="Instagram" />
-        </a>
+  <div class="content-footer">
+    <div class="top-footer d-flex flex-column">
+      <div class="item-footer d-flex flex-column">
+        <img class="logo" src="./../../assets/images/logo_rooots.svg" />
+        <div class="container-social-media">
+          <a href=""
+            ><img src="../../assets/icons/icon_facebook.svg" alt="Facebook"
+          /></a>
+          <a href=""
+            ><img src="../../assets/icons/icon_linkedin.svg" alt="Linkedin"
+          /></a>
+          <a href="">
+            <img src="../../assets/icons/icon_instagram.svg" alt="Instagram" />
+          </a>
+        </div>
+      </div>
+      <div class="item-footer d-flex flex-column">
+        <h3 class="info">{{ titleInfo }}</h3>
+        <app-rt-nav-link
+          p="p-3"
+          link="service-client"
+          text="{{ customerService }}"
+        ></app-rt-nav-link>
+        <app-rt-nav-link
+          p="p-3"
+          link="plan-du-site"
+          text="{{ sitemap }}"
+        ></app-rt-nav-link>
+      </div>
+      <div class="item-footer d-flex flex-column">
+        <h3>{{ titleLegislation }}</h3>
+        <app-rt-nav-link
+          p="p-3"
+          link="mentions-legales"
+          text="{{ legalNotice }}"
+        ></app-rt-nav-link>
+        <app-rt-nav-link
+          p="p-3"
+          link="protection-des-donnees"
+          text="{{ dataProtection }}"
+        ></app-rt-nav-link>
+        <app-rt-nav-link p="p-3" link="CGU" text="{{ CGU }}"></app-rt-nav-link>
+      </div>
+      <div class="item-footer d-flex flex-column">
+        <h3>{{ titleMember }}</h3>
+        <app-rt-nav-link
+          p="p-3"
+          link="devenir-vendeur"
+          text="{{ becomeSeller }}"
+        ></app-rt-nav-link>
+        <app-rt-nav-link
+          p="p-3"
+          link="parrainage"
+          text="{{ sponsorship }}"
+        ></app-rt-nav-link>
       </div>
     </div>
-    <div class="item-footer d-flex flex-column">
-      <h3>{{ titleInfo }}</h3>
-      <app-rt-nav-link
-        p="p-3"
-        link="service-client"
-        text="{{ customerService }}"
-      ></app-rt-nav-link>
-      <app-rt-nav-link
-        p="p-3"
-        link="plan-du-site"
-        text="{{ sitemap }}"
-      ></app-rt-nav-link>
+    <div class="under-footer d-flex flex-column">
+      <div class="container-bank-card">
+        <img src="../../assets/icons/icon_visa.svg" alt="Visa" />
+        <img src="../../assets/icons/icon_mastercard.svg" alt="Mastercard" />
+        <img src="../../assets/icons/icon_stripe.svg" alt="Stripe" />
+      </div>
+      <p>{{ copyright }}</p>
     </div>
-    <div class="item-footer d-flex flex-column">
-      <h3>{{ titleLegislation }}</h3>
-      <app-rt-nav-link
-        p="p-3"
-        link="mentions-legales"
-        text="{{ legalNotice }}"
-      ></app-rt-nav-link>
-      <app-rt-nav-link
-        p="p-3"
-        link="protection-des-donnees"
-        text="{{ dataProtection }}"
-      ></app-rt-nav-link>
-      <app-rt-nav-link p="p-3" link="CGU" text="{{ CGU }}"></app-rt-nav-link>
-    </div>
-    <div class="item-footer d-flex flex-column">
-      <h3>{{ titleMember }}</h3>
-      <app-rt-nav-link
-        p="p-3"
-        link="devenir-vendeur"
-        text="{{ becomeSeller }}"
-      ></app-rt-nav-link>
-      <app-rt-nav-link
-        p="p-3"
-        link="parrainage"
-        text="{{ sponsorship }}"
-      ></app-rt-nav-link>
-    </div>
-  </div>
-  <div class="under-footer d-flex flex-column">
-    <div class="container-bank-card">
-      <img src="../../assets/icons/icon_visa.svg" alt="Visa" />
-      <img src="../../assets/icons/icon_mastercard.svg" alt="Mastercard" />
-      <img src="../../assets/icons/icon_stripe.svg" alt="Stripe" />
-    </div>
-    <p>{{ copyright }}</p>
   </div>
 </div>

@@ -126,7 +126,12 @@ h3 {
 .p-20 {
   padding: 20px;
 }
+@media screen and (max-width: "1070px"){
+.container{
+  padding: 0 3rem;
 
+}
+}
 @media screen and (max-width: "900px") {
   h1{
 font-size: 28px;
@@ -135,13 +140,19 @@ letter-spacing: 0px;
 text-align: center;
 
   }
+
+} 
+@media screen and (max-width: "700px") {
   h2 {
     font-family: "DM Sans";
-    font-size: 21px;
+    font-size: 25px;
     font-weight: 700;
     line-height: 25px;
     letter-spacing: 0px;
     text-align: left;
+  }
+  h3 {
+    font-size: 18px;
   }
 }
 @media screen and (max-width: "500px") {

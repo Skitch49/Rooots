@@ -6,8 +6,8 @@
   cursor: pointer;
   transition: .2s ease-in;
   figure {
-    width: 296px;
-    height: 212px;
+    width: 100%;
+    height: 45%;
     user-select: none;
     img {
       border-radius: 3px 3px 0px 0px;
@@ -18,6 +18,7 @@
     }
   }
   .content-actu {
+    height: 55%;
     padding: 24px;
     .date-actu {
       color: var(--gray);
@@ -31,4 +32,14 @@
 
 .card-actu:hover{
   transform: scale(1.02);
+}
+@media screen and (max-width:1400px) {
+  .card-actu{
+    width: 22vw;
+  }
+}
+@media screen and (max-width:899px) {
+  .card-actu{
+    width: 296px;
+  }
 }

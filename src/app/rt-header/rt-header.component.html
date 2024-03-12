@@ -100,8 +100,9 @@
       type="quaternary"
       size="big"
       text="{{ connexionBtn }}"
+      rightIcon="person_outline"
       *ngIf="!connexion"
-      routerLink="/connexion"
+      routerLink="connexion"
     ></app-rt-button>
     <app-rt-button
       (click)="_translator.getTranslation('fr')"

@@ -18,44 +18,63 @@ export class HomeComponent {
   @ViewChild('swiperPosition') swiperPosition!: ElementRef<SwiperContainer>;
   @ViewChild('swiperCommu') swiperCommu!: ElementRef<SwiperContainer>;
   public isMobile: boolean = false;
-  public slidesPerViewHightlight: Number = 2;
   @ViewChild('swiperHightlight') swiperHightlight: ElementRef | undefined;
 
+  // Swiper
+  swiperConfig: SwiperOptions = {
+    slidesPerView: 3,
 
-    // Swiper
-    swiperConfig: SwiperOptions = {
-      slidesPerView: 3,
-  
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true,
+    },
+
+    loop: true,
+
+    slidesPerGroup: 3,
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
       },
 
-  
-      loop: true,
-  
-      slidesPerGroup: 3,
-      // Responsive breakpoints
-      breakpoints: {
-        // when window width is >= 320px
-        320: {
-          slidesPerView: 3,
-          slidesPerGroup: 3,
-        },
-        // when window width is >= 480px
-        480: {
-          slidesPerView: 2,
-          slidesPerGroup: 2,
-        },
-
-        1350: {
-          slidesPerView: 3,
-          slidesPerGroup: 3,
-        },
+      1350: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
       },
-    };
-    
+    },
+  };
+
+  swiperConfigHightlight: SwiperOptions = {
+    slidesPerView: 3,
+
+    loop: true,
+
+    slidesPerGroup: 3,
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 320px
+      0: {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+      },
+
+      
+    },
+  };
   // mobile version
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -64,9 +83,7 @@ export class HomeComponent {
 
   detectScreenSize() {
     this.isMobile = window.innerWidth < 900;
-    if (window.innerWidth < 600) {
-      this.slidesPerViewHightlight = 2;
-    }
+    
   }
 
   titleHome = '';
@@ -195,7 +212,8 @@ export class HomeComponent {
     } else {
       this.titleHome = 'Find the materials you need in a way that is';
       this.endTitleHome = 'responsable';
-      this.paraHome = "Find ecoresponsable materials you need from europeans suppliers, and contribute to the creation of a solid future for your company and your planet.";
+      this.paraHome =
+        'Find ecoresponsable materials you need from europeans suppliers, and contribute to the creation of a solid future for your company and your planet.';
       this.buy = 'Product list';
       this.hightlightCard1 = 'English please';
       this.hightlightCard2 = 'English please';

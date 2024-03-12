@@ -7,8 +7,8 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [
-  { path: 'test', component: TestComponent },
   { path: 'connexion', component: ConnexionComponent },
+  { path: 'test', component: TestComponent },
   { path: 'inscription', component: InscriptionComponent },
   { path: 'search-product', component: SearchProductComponent },
   { path: ':categorie/:subcategorie', component: SearchProductComponent },

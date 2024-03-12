@@ -178,4 +178,23 @@ input {
       width: 100%;
     }
   }
+  .content-form{
+    width: 60%!important;
+  }
+}
+
+@media screen and (max-width: 899px) {
+.content-form{
+  width: 80%!important;
+}}
+@media screen and (max-width: 550px) {
+  .content-form{
+    width: 100vw!important;
+    app-rt-nav-link, h1,h3{
+      padding: 0 5vw!important;
+    }
+    form{
+      padding: 48px 5vw!important;
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { TranslateService } from 'src/app/services/translate.service';
 
 @Component({
@@ -6,7 +6,18 @@ import { TranslateService } from 'src/app/services/translate.service';
   templateUrl: './rt-newsletter-card.component.html',
   styleUrls: ['./rt-newsletter-card.component.scss'],
 })
-export class RtNewsletterCardComponent {
+export class RtNewsletterCardComponent implements OnInit{
+  public isMobile: boolean = false;
+  // mobile version
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.detectScreenSize();
+  }
+
+  detectScreenSize() {
+    this.isMobile = window.innerWidth < 900;
+  }
+
   titleCard = '';
   paraCard = '';
   placeholder = '';
@@ -21,6 +32,9 @@ export class RtNewsletterCardComponent {
       this.currentLangage = response;
       this.updateLangage();
     });
+  }
+  ngOnInit(): void {
+    this.detectScreenSize()
   }
 
   updateLangage() {

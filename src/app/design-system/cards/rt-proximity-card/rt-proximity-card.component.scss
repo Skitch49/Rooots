@@ -1,14 +1,14 @@
 .proximity-card {
   display: flex;
   flex-direction: column;
-  width: 296px;
-  height: 304px;
+  height: 90%;
+   width: 296px;
   border-radius: 3px;
   background-color: #fff;
 
   figure {
-    width: 296px;
-    height: 206px;
+    width: 100%;
+    height: 70%;
     user-select: none;
     img {
       border-radius: 3px 3px 0px 0px;
@@ -30,5 +30,12 @@
   h3 {
     padding: 24px;
     text-align: center;
+    height: 30%;
+  }
+}
+@media screen and (max-width: 899px) {
+  .proximity-card {
+  width: 100%;
+  height: 90%;
   }
 }

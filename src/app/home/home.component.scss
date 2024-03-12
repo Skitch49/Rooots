@@ -82,9 +82,6 @@ swiper-container {
   --swiper-pagination-bullet-horizontal-gap: 8px;
   --swiper-pagination-bullet-inactive-opacity: 1;
 }
-swiper-container::part(container) {
-  overflow-y: visible;
-}
 
 swiper-container::part(bullet) {
   background-color: white;
@@ -96,6 +93,7 @@ swiper-container::part(bullet-active) {
 swiper-container::part(pagination) {
   text-align: end;
   left: -72px !important;
+  bottom: 0px;
 }
 
 // Présentation
@@ -168,6 +166,7 @@ swiper-container::part(pagination) {
     min-width: 0;
     .swiper-container {
       width: 100%;
+      height: 110%;
       .swiper-wrapper {
         display: flex !important;
         justify-content: space-between !important;
@@ -180,18 +179,88 @@ swiper-container::part(pagination) {
   }
 }
 
-@media screen and (max-width: 900px) {
-  .content-item-1 {
-    width: 90%!important;
+@media screen and (max-width: 1070px) {
+  .wrapper-cards .container-card {
+    bottom: -105px;
   }
-  .container-left {
-    padding-left: 20px;
+  .container-position {
+    padding-top: 10rem;
+  }
+}
+@media screen and (max-width: 950px) {
+  .content-position {
+    padding-right: 0!important;
+  }
+}
+@media screen and (max-width: 900px) {
+  .container-card {
+    swiper-slide {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .content-item-1 {
+    width: 90% !important;
   }
 
   .container-position {
+    padding-bottom: 3rem;
     p {
       margin-bottom: 16px;
       margin-top: 16px;
+      text-align: center;
     }
+  }
+  .container-presentation{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    h2{
+      text-align: center;
+    }
+  }
+  .container-actu{
+    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    h2{
+      text-align: center;
+    }
+  }
+  .container-fonctionnement{
+    h2{
+      text-align: center;
+    }
+  }
+  .container-commu{
+    padding: 3rem 5vw;
+    h2{
+      text-align: center;
+    }
+    p{
+      margin: 16px 0;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .container-position{
+    padding-bottom: 1rem;
+  }
+  .container-presentation{
+
+    padding: 2rem 5vw;
+    h2{
+      text-align: center;
+    }
+    .item-presentation{
+      flex: 100%!important;
+    }
+  }
+  .container-actu{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .container-fonctionnement{
+    padding: 2rem 5vw;
   }
 }
