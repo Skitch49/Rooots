@@ -7,12 +7,18 @@
   </figure>
   <div class="content-newsletter">
     <div class="item-content">
-      <h2>{{titleCard}}</h2>
-      <p>{{paraCard}}</p>
+      <h2>{{ titleCard }}</h2>
+      <p>{{ paraCard }}</p>
     </div>
     <div class="formulaire-newsletter d-flex">
-      <input type="email" name="email" id="email" placeholder="{{placeholder}}"/>
-      <app-rt-button text="{{subscribe}}"></app-rt-button>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="{{ placeholder }}"
+      />
+      <app-rt-button *ngIf="!isMobile" text="{{ subscribe }}"></app-rt-button>
+      <button *ngIf="isMobile" class="btn-newsletter">{{ subscribe }}</button>
     </div>
   </div>
 </div>

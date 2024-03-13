@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-connexion',
@@ -20,7 +26,7 @@ export class ConnexionComponent {
   }
   get rememberMe() {
     return this.form.get('rememberMe');
-  } 
+  }
 
   constructor(private fb: FormBuilder) {}
 
@@ -31,7 +37,10 @@ export class ConnexionComponent {
     ],
     userPassword: [
       '',
-      Validators.compose([Validators.required, this.passwordComplexityValidator]),
+      Validators.compose([
+        Validators.required,
+        this.passwordComplexityValidator,
+      ]),
     ],
     rememberMe: '',
   });
@@ -40,7 +49,9 @@ export class ConnexionComponent {
     this.showUserPassword = !this.showUserPassword;
   }
 
-  private passwordComplexityValidator(control: FormControl): ValidationErrors | null {
+  private passwordComplexityValidator(
+    control: FormControl
+  ): ValidationErrors | null {
     const password = control.value;
     if (!password) {
       return null;
@@ -50,11 +61,18 @@ export class ConnexionComponent {
     const hasLowercase = /[a-z]/.test(password);
     const hasUppercase = /[A-Z]/.test(password);
     const hasNumber = /\d/.test(password);
-    const hasSpecialChar = /[()\[\]!_@&#+\-*,?/;:{}^~`=<>|$%"'\\]/.test(password);
+    const hasSpecialChar = /[()\[\]!_@&#+\-*,?/;:{}^~`=<>|$%"'\\]/.test(
+      password
+    );
 
-    const isValid = hasMinLength && hasLowercase && hasUppercase && hasNumber && hasSpecialChar;
+    const isValid =
+      hasMinLength &&
+      hasLowercase &&
+      hasUppercase &&
+      hasNumber &&
+      hasSpecialChar;
     if (!isValid) {
-      return { 'passwordComplexity': true };
+      return { passwordComplexity: true };
     }
     return null;
   }
@@ -63,8 +81,7 @@ export class ConnexionComponent {
     this.submitForm = true;
 
     if (this.form.valid) {
-      console.log(this.form.value);
-      // this.form.reset();
+      this.form.reset();
     } else {
       this.userPassword!.reset();
     }

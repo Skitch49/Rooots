@@ -15,7 +15,7 @@ export class FooterComponent {
   }
 
   detectScreenSize() {
-    this.isMobile = window.innerWidth < 900;
+    this.isMobile = window.innerWidth < 800;
   }
 
   titleInfo = '';

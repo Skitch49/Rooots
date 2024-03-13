@@ -32,21 +32,30 @@
   }
 }
 
-@media screen and (max-width: 900px) {
-  .item-footer {
-    margin-bottom: 30px;
-    #logo {
-      width: 50%;
+@media screen and (max-width: 899px) {
+  .container-footer {
+    padding: 0;
+    .top-footer {
+      padding: 2rem 2rem;
     }
-    .container-social-media {
-      img {
-        width: 25px;
-        height: 25px;
-      }
+  }
+}
+@media screen and (max-width: 799px) {
+  .logo {
+    width: 45vw !important;
+  }
+  .item-footer {
+    h3 {
+      margin-top: 2.5rem;
+    }
+    .info{
+      margin-top: 1rem!important;
     }
   }
   .under-footer{
-    margin: 0;
-    margin-bottom: 2rem;
+    margin: 2rem!important;
+    .container-bank-card{
+      margin-bottom: 1rem;
+    }
   }
 }
