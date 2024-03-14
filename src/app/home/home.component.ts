@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  OnInit,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -14,7 +15,7 @@ import { SwiperOptions } from 'swiper/types';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   @ViewChild('swiperPosition') swiperPosition!: ElementRef<SwiperContainer>;
   @ViewChild('swiperCommu') swiperCommu!: ElementRef<SwiperContainer>;
   public isMobile: boolean = false;
@@ -31,6 +32,7 @@ export class HomeComponent {
     },
 
     loop: true,
+    loopAddBlankSlides: false,
 
     slidesPerGroup: 3,
     // Responsive breakpoints
@@ -71,8 +73,6 @@ export class HomeComponent {
         slidesPerView: 2,
         slidesPerGroup: 2,
       },
-
-      
     },
   };
   // mobile version
@@ -83,7 +83,6 @@ export class HomeComponent {
 
   detectScreenSize() {
     this.isMobile = window.innerWidth < 900;
-    
   }
 
   titleHome = '';
@@ -149,6 +148,9 @@ export class HomeComponent {
       this.currentLangage = response;
       this.updateLangage();
     });
+  }
+  ngOnInit(): void {
+    this.detectScreenSize();
   }
 
   updateLangage() {

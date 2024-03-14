@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { TranslateService } from '../services/translate.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { TranslateService } from '../services/translate.service';
   templateUrl: './rt-footer.component.html',
   styleUrls: ['./rt-footer.component.scss'],
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
   public isMobile: boolean = false;
 
   @HostListener('window:resize', ['$event'])
@@ -39,6 +39,9 @@ export class FooterComponent {
       this.currentLangage = response;
       this.updateLangage();
     });
+  }
+  ngOnInit(): void {
+    this.detectScreenSize();
   }
 
   updateLangage() {

@@ -5,8 +5,9 @@
   position: relative;
   border: 1px solid var(--gray-background);
   width: 296px;
-  height: 426px;
+  height: 375px;
   background-color: #fff;
+  margin-top: 4%;
   .avis-user {
     padding: 24px;
   }
@@ -46,5 +47,17 @@
         background: white;
       }
     }
+  }
+}
+@media screen and (max-width:360px) {
+  .avis-user{
+    padding: 24px 2vw!important;
+  }
+  .footer-card-commu{
+    padding-left: 2vw!important;
+    padding-right: 2vw!important;
+  }
+  .citation-icon{
+    display: none;
   }
 }

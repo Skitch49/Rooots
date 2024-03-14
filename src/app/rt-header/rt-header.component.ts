@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { TranslateService } from '../services/translate.service';
 import { Observable } from 'rxjs';
 import { HeaderCategories } from '../interfaces/header-categories.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rt-header',
@@ -26,6 +27,9 @@ export class RtHeaderComponent implements OnInit {
     if (currentScrollPos > this.prevScrollPos && window.scrollY > 100) {
       // L'utilisateur fait défiler vers le bas
       this.navbarDisplay = false;
+      this.iconCatalogue = 'border_all';
+      this.burgerMenuIcon = 'menu';
+      this.subMenuVisible = false;
     } else {
       // L'utilisateur fait défiler vers le haut
       this.navbarDisplay = true;
@@ -51,7 +55,7 @@ export class RtHeaderComponent implements OnInit {
   actu = '';
   becomeSheller = '';
   currentLangage: any = '';
-  constructor(public _translator: TranslateService) {
+  constructor(public _translator: TranslateService, private router: Router) {
     this.detectScreenSize();
     this.currentLangage = localStorage.getItem('langage');
     if (this.currentLangage) {
@@ -286,4 +290,14 @@ export class RtHeaderComponent implements OnInit {
       ],
     },
   ];
+
+  public leave(link:string):void {
+    this.subMenuVisible = false;
+    this.iconCatalogue = 'border_all';
+    this.burgerMenuIcon = 'menu';
+    console.log(this.subMenuVisible)
+    console.log('catalogue: '+this.iconCatalogue)
+    console.log('burger: '+this.burgerMenuIcon)
+    this.router.navigate([link])
+  }
 }

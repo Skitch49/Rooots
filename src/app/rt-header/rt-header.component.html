@@ -9,7 +9,7 @@
       size="big"
       text="{{ connexionBtn }}"
       *ngIf="!connexion"
-      routerLink="connexion"
+      (click)="leave('connexion')"
     ></app-rt-button>
     <app-rt-button
       (click)="_translator.getTranslation('fr')"
@@ -35,18 +35,19 @@
     <figure>
       <img
         src="./../../assets/images/logo_rooots.svg"
-        routerLink="/"
+        (click)="leave('/')"
         alt="Logo Rooots"
       />
     </figure>
 
     <app-rt-search-bar></app-rt-search-bar>
     <!-- link="/qui-sommes-nous" A changer a la place de test -->
-    <app-rt-nav-link link="test" text="{{ whoAreYou }}"></app-rt-nav-link>
-    <app-rt-nav-link link="/actualites" text="{{ actu }}"></app-rt-nav-link>
+    <app-rt-nav-link link="test" text="{{ whoAreYou }}" (click)="leave('test')"></app-rt-nav-link>
+    <app-rt-nav-link link="/actualites" text="{{ actu }} " (click)="leave('actualites')"></app-rt-nav-link>
     <app-rt-nav-link
       link="/devenir-vendeur"
       text="{{ becomeSheller }}"
+      (click)="leave('devenir-vendeur')"
     ></app-rt-nav-link>
   </div>
   <div class="submenu" *ngIf="subMenuVisible">
@@ -70,7 +71,7 @@
               <li
                 *ngFor="let mat of subcategories.materials"
                 [value]="mat"
-                [routerLink]="[subcategories.name, mat.name]"
+                (click)="leave(subcategories.name + '/' + mat.name)"
               >
                 <img src="{{ mat.img }}" />
                 <h4>{{ mat.name }}</h4>
@@ -92,7 +93,7 @@
     <figure>
       <img
         src="./../../assets/images/white_logo_rooots.svg"
-        routerLink="/"
+        (click)="leave('/')"
         alt="Logo Rooots"
       />
     </figure>
@@ -102,7 +103,7 @@
       text="{{ connexionBtn }}"
       rightIcon="person_outline"
       *ngIf="!connexion"
-      routerLink="connexion"
+      (click)="leave('connexion')"
     ></app-rt-button>
     <app-rt-button
       (click)="_translator.getTranslation('fr')"
@@ -160,12 +161,12 @@
     </ul>
     <ul class="submenu-material" *ngIf="currentStep === 3">
       <!-- Troisième étape -->
-      <h2>{{selectedSubcategory.name}}</h2>
+      <h2>{{ selectedSubcategory.name }}</h2>
       <li
-      class="item-first-submenu"
+        class="item-first-submenu"
         *ngFor="let mat of selectedSubcategory.materials"
         [value]="mat"
-        [routerLink]="[selectedSubcategory.name, mat.name]"
+        (click)="leave(selectedSubcategory.name + '/' + mat.name)"
         (click)="showSubMenu()"
       >
         <h4>{{ mat.name }}</h4>
