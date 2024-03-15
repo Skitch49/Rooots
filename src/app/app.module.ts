@@ -12,6 +12,7 @@ import { TestComponent } from './test/test.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { register } from 'swiper/element/bundle';
+
 //Material
 import {MatIconModule} from '@angular/material/icon';
 
@@ -37,6 +38,13 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { SwiperDirective } from './shared/directives/swiper.directive';
 import { ProductComponent } from './product/product.component';
+
+
+//services
+import { HttpClientModule } from '@angular/common/http';
+import { ApiRoootsService } from './services/api-rooots.service';
+import { ArticlesComponent } from './articles/articles.component';
+
 
 // register Swiper custom elements
 register();
@@ -68,15 +76,17 @@ register();
     InscriptionComponent,
     SwiperDirective,
     ProductComponent,
+    ArticlesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiRoootsService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

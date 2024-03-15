@@ -5,6 +5,7 @@ import { SearchProductComponent } from './search-product/search-product.componen
 import { TestComponent } from './test/test.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { ArticlesComponent } from './articles/articles.component';
 
 const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'inscription', component: InscriptionComponent },
   { path: 'search-product', component: SearchProductComponent },
   { path: ':categorie/:subcategorie', component: SearchProductComponent },
+  { path: 'actus', component: ArticlesComponent },
   { path: '**', component: HomeComponent },
   
 ];

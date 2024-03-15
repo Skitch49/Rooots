@@ -3,6 +3,7 @@ import { TranslateService } from '../services/translate.service';
 import { Observable } from 'rxjs';
 import { HeaderCategories } from '../interfaces/header-categories.interface';
 import { Router } from '@angular/router';
+import { ApiRoootsService } from '../services/api-rooots.service';
 
 @Component({
   selector: 'app-rt-header',
@@ -55,7 +56,8 @@ export class RtHeaderComponent implements OnInit {
   actu = '';
   becomeSheller = '';
   currentLangage: any = '';
-  constructor(public _translator: TranslateService, private router: Router) {
+
+  constructor(public _translator: TranslateService, private router: Router, private _http: ApiRoootsService) {
     this.detectScreenSize();
     this.currentLangage = localStorage.getItem('langage');
     if (this.currentLangage) {
@@ -83,7 +85,10 @@ export class RtHeaderComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._http.getAllUser().subscribe((resp)=>{      
+    })
+  }
 
   public showSubMenu() {
     this.subMenuVisible = !this.subMenuVisible;
@@ -295,9 +300,6 @@ export class RtHeaderComponent implements OnInit {
     this.subMenuVisible = false;
     this.iconCatalogue = 'border_all';
     this.burgerMenuIcon = 'menu';
-    console.log(this.subMenuVisible)
-    console.log('catalogue: '+this.iconCatalogue)
-    console.log('burger: '+this.burgerMenuIcon)
     this.router.navigate([link])
   }
 }
