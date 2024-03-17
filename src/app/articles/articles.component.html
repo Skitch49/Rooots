@@ -1,4 +1,37 @@
-<div *ngFor="let Obj of articleList">
-    <app-rt-article titre="{{Obj.titre}}" desc="{{Obj.desc}}"></app-rt-article>
-
+<div class="articles">
+  <div class="navigation container">
+    <p class="d-flex">
+      <span routerLink="">Accueil</span
+      ><img src="../../assets/icons/icon_light_arrow.svg" /><span
+        routerLink="/actualites"
+        routerLinkActive="active"
+        >Actualités</span
+      >
+    </p>
+  </div>
+  <h1>Les articles à la une</h1>
+  <div class="container-actu">
+    <div *ngFor="let article of articleList" routerLink="{{ article.id }}" >
+      <div class="card-actu" *ngIf="!isMobile && article.titre!=null">
+        <figure>
+          <img
+            src="../../assets/images/img_illustration_actu.svg"
+            alt="{{ article.titre }}"
+          />
+        </figure>
+        <div class="content-actu">
+          <h3>{{ article.titre }}</h3>
+          <p>{{ article.description | shortDesc }}</p>
+          <p class="date">{{article.createdAt | date}}</p>
+        </div>
+      </div>
+      <app-rt-article
+        *ngIf="isMobile && article.titre!=null"
+        titre="{{ article.titre }}"
+        img="../../assets/images/img_illustration_actu.svg"
+        date="{{ article.createdAt | date }}"
+        desc="{{ article.description | shortDesc }}"
+      ></app-rt-article>
+    </div>
+  </div>
 </div>

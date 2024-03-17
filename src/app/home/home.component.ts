@@ -9,6 +9,7 @@ import {
 import { SwiperContainer, register } from 'swiper/element';
 import { TranslateService } from '../services/translate.service';
 import { SwiperOptions } from 'swiper/types';
+import { ApiRoootsService } from '../services/api-rooots.service';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +19,9 @@ import { SwiperOptions } from 'swiper/types';
 export class HomeComponent implements OnInit {
   @ViewChild('swiperPosition') swiperPosition!: ElementRef<SwiperContainer>;
   @ViewChild('swiperCommu') swiperCommu!: ElementRef<SwiperContainer>;
-  public isMobile: boolean = false;
   @ViewChild('swiperHightlight') swiperHightlight: ElementRef | undefined;
+  public isMobile: boolean = false;
+  articleList: any = [];
 
   // Swiper
   swiperConfig: SwiperOptions = {
@@ -32,7 +34,6 @@ export class HomeComponent implements OnInit {
     },
 
     loop: true,
-    loopAddBlankSlides: false,
 
     slidesPerGroup: 3,
     // Responsive breakpoints
@@ -107,18 +108,6 @@ export class HomeComponent implements OnInit {
   titleResponse4 = '';
   descResponse4 = '';
   titleLastActu = '';
-  titleActu1 = '';
-  dateActu1 = '';
-  descActu1 = '';
-  titleActu2 = '';
-  dateActu2 = '';
-  descActu2 = '';
-  titleActu3 = '';
-  dateActu3 = '';
-  descActu3 = '';
-  titleActu4 = '';
-  dateActu4 = '';
-  descActu4 = '';
   allActu = '';
   titleHowWorkIt = '';
   descHowWorkIt1 = '';
@@ -138,7 +127,7 @@ export class HomeComponent implements OnInit {
   situationAvis3 = '';
   nomAvis3 = '';
   currentLangage: any = '';
-  constructor(public _translator: TranslateService) {
+  constructor(public _translator: TranslateService, private apiRooots:ApiRoootsService) {
     register();
     this.currentLangage = localStorage.getItem('langage');
     if (this.currentLangage) {
@@ -151,6 +140,25 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.detectScreenSize();
+    this.apiRooots.getAllArticles().subscribe((resp) => {
+      this.articleList = resp
+    }, (err) => {
+      console.warn("could not retrieve articles")
+    })
+  }
+
+  get lastFourArticles() {
+    // Filtre les articles où le titre n'est pas nul
+    const filteredArticles = this.articleList.filter((article: { titre: string; }) => article.titre != null);
+
+    // Retourne les 4 derniers articles de la liste filtrée
+    return filteredArticles.slice(-4);
+  }
+  get lastArticle(){
+    const filteredArticles = this.articleList.filter((article: { titre: string; }) => article.titre != null);
+
+    // Retourne les 4 derniers articles de la liste filtrée
+    return filteredArticles.slice(-1);
   }
 
   updateLangage() {
@@ -181,18 +189,6 @@ export class HomeComponent implements OnInit {
       this.titleResponse4 = `Renforcement de l'engagement responsable`;
       this.descResponse4 = `Renforcez votre image de marque grâce à l'utilisation de matières éco-responsables.`;
       this.titleLastActu = `Nos dernières actualités`;
-      this.titleActu1 = `RSE : Tout ce qu’il faut savoir`;
-      this.dateActu1 = `8 juin 2023`;
-      this.descActu1 = `Explorez les principes fondamentaux de la RSE, son impact sur les entreprises et la société...`;
-      this.titleActu2 = `RSE : Tout ce qu’il faut savoir`;
-      this.dateActu2 = `8 juin 2023`;
-      this.descActu2 = `Explorez les principes fondamentaux de la RSE, son impact sur les entreprises et la société...`;
-      this.titleActu3 = `RSE : Tout ce qu’il faut savoir`;
-      this.dateActu3 = `8 juin 2023`;
-      this.descActu3 = `Explorez les principes fondamentaux de la RSE, son impact sur les entreprises et la société...`;
-      this.titleActu4 = `RSE : Tout ce qu’il faut savoir`;
-      this.dateActu4 = `8 juin 2023`;
-      this.descActu4 = `Explorez les principes fondamentaux de la RSE, son impact sur les entreprises et la société...`;
       this.allActu = `Toutes nos actualités`;
       this.titleHowWorkIt = `Comment ça marche ?`;
       this.descHowWorkIt1 = `Découvrez une variété de matériaux éco-responsables soigneusement sélectionnés.`;
@@ -235,18 +231,6 @@ export class HomeComponent implements OnInit {
       this.titleResponse4 = `English please`;
       this.descResponse4 = `English please`;
       this.titleLastActu = `English please`;
-      this.titleActu1 = `English please`;
-      this.dateActu1 = `English please`;
-      this.descActu1 = `English please`;
-      this.titleActu2 = `English please`;
-      this.dateActu2 = `English please`;
-      this.descActu2 = `English please`;
-      this.titleActu3 = `English please`;
-      this.dateActu3 = `English please`;
-      this.descActu3 = `English please`;
-      this.titleActu4 = `English please`;
-      this.dateActu4 = `English please`;
-      this.descActu4 = `English please`;
       this.allActu = `English please`;
       this.titleHowWorkIt = `English please`;
       this.descHowWorkIt1 = `English please`;

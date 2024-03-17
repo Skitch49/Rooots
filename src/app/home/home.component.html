@@ -190,37 +190,28 @@
   <div class="container container-actu d-flex flex-column">
     <h2>{{ titleLastActu }}</h2>
     <div
-      class="container-card-actu d-flex justify-content-space-between mt-50 flex-wrap"
+      class="container-card-actu d-flex justify-content-space-between mt-50 flex-wrap" *ngIf="!isMobile"
     >
-      <app-rt-article
+      <app-rt-article *ngFor="let article of lastFourArticles" 
         img="../../assets/images/img_illustration_actu.svg"
-        titre="{{ titleActu1 }}"
-        date="{{ dateActu1 }}"
-        desc="{{ descActu1 }}"
-      ></app-rt-article>
-      <app-rt-article
-        *ngIf="!isMobile"
-        img="../../assets/images/img_illustration_actu.svg"
-        titre="{{ titleActu2 }}"
-        date="{{ dateActu2 }}"
-        desc="{{ descActu2 }}"
-      ></app-rt-article>
-      <app-rt-article
-        *ngIf="!isMobile"
-        img="../../assets/images/img_illustration_actu.svg"
-        titre="{{ titleActu3 }}"
-        date="{{ dateActu3 }}"
-        desc="{{ descActu3 }}"
-      ></app-rt-article>
-      <app-rt-article
-        *ngIf="!isMobile"
-        img="../../assets/images/img_illustration_actu.svg"
-        titre="{{ titleActu4 }}"
-        date="{{ dateActu4 }}"
-        desc="{{ descActu4 }}"
+        titre="{{ article.titre }}"
+        date="{{ article.createdAt | date }}"
+        description="{{ article.description | shortDesc}}"
+        routerLink="/actualites/{{article.id}}"
       ></app-rt-article>
     </div>
-    <app-rt-button class="m-ver-20" text="{{ allActu }}" routerLink="actus"></app-rt-button>
+    <div
+    class="container-card-actu d-flex justify-content-space-between mt-50 flex-wrap" *ngIf="isMobile"
+  >
+    <app-rt-article *ngFor="let article of lastArticle" 
+    routerLink="/actualites/{{article.id}}"
+      img="../../assets/images/img_illustration_actu.svg"
+      titre="{{ article.titre }}"
+      date="{{ article.createdAt | date }}"
+      description="{{ article.description | shortDesc}}"
+    ></app-rt-article>
+  </div>
+    <app-rt-button class="m-ver-20" text="{{ allActu }}" routerLink="actualites"></app-rt-button>
   </div>
   <div
     class="container container-fonctionnement d-flex justify-content-space-between align-center"

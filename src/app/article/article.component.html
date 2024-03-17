@@ -1,0 +1,43 @@
+<div class="container container-actu" *ngIf="article">
+  <div class="navigation">
+    <p class="d-flex">
+      <span routerLink="">Accueil</span
+      ><img src="../../assets/icons/icon_light_arrow.svg" /><span
+        routerLink="/actualites"
+        >Actualités</span
+      ><img src="../../assets/icons/icon_light_arrow.svg" /><span
+        routerLink="/actualites/{{ articleId }}"
+        routerLinkActive="active"
+        >{{ articleId }}</span
+      >
+    </p>
+  </div>
+  <div class="article" *ngIf="!isMobile">
+    <div class="header-article">
+      <figure>
+        <img src="../../assets/images/img_illustration_actu.svg" />
+      </figure>
+      <div class="info-article">
+        <p class="date-actu">{{ article.createdAt | date }}</p>
+        <h1>{{ article.titre }}</h1>
+      </div>
+    </div>
+    <div class="content-actu">
+      <p>{{ article.description }}</p>
+    </div>
+  </div>
+
+  <div class="article" *ngIf="isMobile">
+    <div class="header-article" *ngIf="isMobile">
+      <figure>
+        <img src="../../assets/images/img_illustration_actu.svg" />
+      </figure>
+      <p class="date-actu">{{ article.createdAt | date }}</p>
+    </div>
+    <div class="content-actu">
+      <h1>{{ article.titre }}</h1>
+
+      <p>{{ article.description }}</p>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiRoootsService {
-  privateUrl = 'http://localhost:3000/api';
+  privateUrl = 'http://31.207.34.46:40110/api';
   constructor(private http: HttpClient) {}
 
   getAllUser(): Observable<any> {
@@ -32,7 +32,12 @@ export class ApiRoootsService {
     );
   }
 
-
+  getArticleById(articleId: any): Observable<any> {
+    let url = `${this.privateUrl}/articles/${articleId}`;
+    return this.http.get(url).pipe(
+      catchError(this.handleError)
+    );
+  }
 
 
   private handleError(error: HttpErrorResponse) {
