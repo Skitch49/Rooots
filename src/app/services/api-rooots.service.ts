@@ -1,39 +1,39 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, from, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiRoootsService {
-  privateUrl = 'http://31.207.34.46:40110/api';
   constructor(private http: HttpClient) {}
 
   getAllUser(): Observable<any> {
-   let url = `${this.privateUrl}/users`;
+   let url = `${environment.api}/users`;
     return this.http.get(url).pipe(
       catchError(this.handleError)
     );
   }
 
   getUser(userId: any): Observable<any> {
-    return this.http.get(`${this.privateUrl}/users/${userId}`);
+    return this.http.get(`${environment.api}/users/${userId}`);
   }
 
   postUser(user: any): Observable<any> {
-    return this.http.post(`${this.privateUrl}/users`, user);
+    return this.http.post(`${environment.api}/users`, user);
   }
 
   getAllArticles(){
-    let url = `${this.privateUrl}/articles`;
+    let url = `${environment.api}/articles`;
     return this.http.get(url).pipe(
       catchError(this.handleError)
     );
   }
 
   getArticleById(articleId: any): Observable<any> {
-    let url = `${this.privateUrl}/articles/${articleId}`;
+    let url = `${environment.api}/articles/${articleId}`;
     return this.http.get(url).pipe(
       catchError(this.handleError)
     );

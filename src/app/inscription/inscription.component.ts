@@ -152,7 +152,6 @@ export class InscriptionComponent {
 
   submit() {
     if (this.form.valid) {
-      console.log(this.form.value);
       // this.api.postUser({
       //   nom: this.lastName?.value,
       //   prenom: this.firstName?.value,

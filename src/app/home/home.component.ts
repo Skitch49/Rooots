@@ -141,7 +141,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.detectScreenSize();
     this.apiRooots.getAllArticles().subscribe((resp) => {
-      this.articleList = resp
+      this.articleList = resp      
     }, (err) => {
       console.warn("could not retrieve articles")
     })
