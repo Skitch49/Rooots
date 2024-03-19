@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./rt-header-material.component.scss']
 })
 export class RtHeaderMaterialComponent {
-  @Input() img : string = '../../assets/images/img_example_tissus.svg';
+  @Input() img : string = '../../assets/images/img_example_tissus.webp';
   @Input() name : string = 'Tissus tissés';
 }

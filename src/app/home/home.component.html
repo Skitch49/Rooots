@@ -23,19 +23,19 @@
       *ngIf="!isMobile"
     >
       <app-rt-hightlight-card
-        img="../../assets/images/img_hightlight_1.svg"
+        img="../../assets/images/img_hightlight_1.webp"
         text="{{ hightlightCard1 }}"
       ></app-rt-hightlight-card>
       <app-rt-hightlight-card
-        img="../../assets/images/img_hightlight_2.svg"
+        img="../../assets/images/img_hightlight_2.webp"
         text="{{ hightlightCard2 }}"
       ></app-rt-hightlight-card>
       <app-rt-hightlight-card
-        img="../../assets/images/img_hightlight_3.svg"
+        img="../../assets/images/img_hightlight_3.webp"
         text="{{ hightlightCard3 }}"
       ></app-rt-hightlight-card>
       <app-rt-hightlight-card
-        img="../../assets/images/img_hightlight_4.svg"
+        img="../../assets/images/img_hightlight_4.webp"
         text="{{ hightlightCard4 }}"
       ></app-rt-hightlight-card>
     </div>
@@ -48,25 +48,25 @@
       >
         <swiper-slide>
           <app-rt-hightlight-card
-            img="../../assets/images/img_hightlight_1.svg"
+            img="../../assets/images/img_hightlight_1.webp"
             text="{{ hightlightCard1 }}"
           ></app-rt-hightlight-card>
         </swiper-slide>
         <swiper-slide>
           <app-rt-hightlight-card
-            img="../../assets/images/img_hightlight_2.svg"
+            img="../../assets/images/img_hightlight_2.webp"
             text="{{ hightlightCard2 }}"
           ></app-rt-hightlight-card
         ></swiper-slide>
         <swiper-slide
           ><app-rt-hightlight-card
-            img="../../assets/images/img_hightlight_3.svg"
+            img="../../assets/images/img_hightlight_3.webp"
             text="{{ hightlightCard3 }}"
           ></app-rt-hightlight-card
         ></swiper-slide>
         <swiper-slide>
           <app-rt-hightlight-card
-            img="../../assets/images/img_hightlight_4.svg"
+            img="../../assets/images/img_hightlight_4.webp"
             text="{{ hightlightCard4 }}"
           ></app-rt-hightlight-card
         ></swiper-slide>
@@ -110,10 +110,11 @@
           appSwiper
           #swiperPosition
         >
-          <swiper-slide *ngFor="let i of [].constructor(9).keys()">
+        <!-- Error console  -->
+          <swiper-slide *ngFor="let item of numArray; let i = index">
             <app-rt-proximity-card
               localisation="60"
-              img="../../assets/images/img_example_3.svg"
+              img="../../assets/images/img_example_3.webp"
               text="{{ textCardProximity }}"
             ></app-rt-proximity-card>
           </swiper-slide>
@@ -129,7 +130,7 @@
       </p>
       <app-rt-proximity-card
         localisation="60"
-        img="../../assets/images/img_example_3.svg"
+        img="../../assets/images/img_example_3.webp"
         text="{{ textCardProximity }}"
       ></app-rt-proximity-card>
       <app-rt-button
@@ -184,7 +185,7 @@
       class="illustration-presentation d-flex justify-content-flex-end"
       *ngIf="!isMobile"
     >
-      <img src="./../../assets/images/img_illustration_home.svg" alt="" />
+      <img src="./../../assets/images/img_illustration_home.webp" alt="" />
     </div>
   </div>
   <div class="container container-actu d-flex flex-column">
@@ -193,7 +194,7 @@
       class="container-card-actu d-flex justify-content-space-between mt-50 flex-wrap" *ngIf="!isMobile"
     >
       <app-rt-article *ngFor="let article of lastFourArticles" 
-        img="../../assets/images/img_illustration_actu.svg"
+        img="../../assets/images/img_illustration_actu.webp"
         titre="{{ article.titre }}"
         date="{{ article.createdAt | date }}"
         description="{{ article.description | shortDesc}}"
@@ -205,7 +206,7 @@
   >
     <app-rt-article *ngFor="let article of lastArticle" 
     routerLink="/actualites/{{article.id}}"
-      img="../../assets/images/img_illustration_actu.svg"
+      img="../../assets/images/img_illustration_actu.webp"
       titre="{{ article.titre }}"
       date="{{ article.createdAt | date }}"
       description="{{ article.description | shortDesc}}"
@@ -217,7 +218,7 @@
     class="container container-fonctionnement d-flex justify-content-space-between align-center"
   >
     <div class="illustration-fonctionnement" *ngIf="!isMobile">
-      <img src="./../../assets/images/img_illustration_fonctionnement.svg" />
+      <img src="./../../assets/images/img_illustration_fonctionnement.webp" />
     </div>
     <div class="wrapper-fonctionnement">
       <h2>{{ titleHowWorkIt }}</h2>
@@ -299,7 +300,7 @@
               desc="{{ descAvis1 }}"
               situation="{{ situationAvis1 }}"
               nom="{{ nomAvis1 }}"
-              img="../../assets/images/avis_example_1.svg"
+              img="../../assets/images/avis_example_1.webp"
             ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
@@ -307,7 +308,7 @@
               desc="{{ descAvis2 }}"
               situation="{{ situationAvis2 }}"
               nom="{{ nomAvis2 }}"
-              img="../../assets/images/avis_example_2.svg"
+              img="../../assets/images/avis_example_2.webp"
             ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
@@ -315,7 +316,7 @@
               desc="{{ descAvis3 }}"
               situation="{{ situationAvis3 }}"
               nom="{{ nomAvis3 }}"
-              img="../../assets/images/avis_example_3.svg"
+              img="../../assets/images/avis_example_3.webp"
             ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
@@ -323,7 +324,7 @@
               desc="{{ descAvis1 }}"
               situation="{{ situationAvis1 }}"
               nom="{{ nomAvis1 }}"
-              img="../../assets/images/avis_example_1.svg"
+              img="../../assets/images/avis_example_1.webp"
             ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
@@ -331,7 +332,7 @@
               desc="{{ descAvis2 }}"
               situation="{{ situationAvis2 }}"
               nom="{{ nomAvis2 }}"
-              img="../../assets/images/avis_example_2.svg"
+              img="../../assets/images/avis_example_2.webp"
             ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
@@ -339,7 +340,7 @@
               desc="{{ descAvis3 }}"
               situation="{{ situationAvis3 }}"
               nom="{{ nomAvis3 }}"
-              img="../../assets/images/avis_example_3.svg"
+              img="../../assets/images/avis_example_3.webp"
             ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
@@ -347,7 +348,7 @@
               desc="{{ descAvis1 }}"
               situation="{{ situationAvis1 }}"
               nom="{{ nomAvis1 }}"
-              img="../../assets/images/avis_example_1.svg"
+              img="../../assets/images/avis_example_1.webp"
             ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
@@ -355,7 +356,7 @@
               desc="{{ descAvis2 }}"
               situation="{{ situationAvis2 }}"
               nom="{{ nomAvis2 }}"
-              img="../../assets/images/avis_example_2.svg"
+              img="../../assets/images/avis_example_2.webp"
             ></app-rt-testimonial-card>
           </swiper-slide>
           <swiper-slide>
@@ -363,7 +364,7 @@
               desc="{{ descAvis3 }}"
               situation="{{ situationAvis3 }}"
               nom="{{ nomAvis3 }}"
-              img="../../assets/images/avis_example_3.svg"
+              img="../../assets/images/avis_example_3.webp"
             ></app-rt-testimonial-card>
           </swiper-slide>
         </swiper-container>
@@ -380,7 +381,7 @@
         desc="{{ descAvis1 }}"
         situation="{{ situationAvis1 }}"
         nom="{{ nomAvis1 }}"
-        img="../../assets/images/avis_example_1.svg"
+        img="../../assets/images/avis_example_1.webp"
       ></app-rt-testimonial-card>
       <app-rt-button class="m-ver-20" text="{{ btnJoinCommu }}"></app-rt-button>
     </div>

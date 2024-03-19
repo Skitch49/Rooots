@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class RtHightlightCardComponent {
   @Input() text: string = 'Tissus durables pour vêtements éco-responsables';
-  @Input() img: string = './../../assets/images/img_example_1.svg';
+  @Input() img: string = './../../assets/images/img_example_1.webp';
 }

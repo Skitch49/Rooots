@@ -123,47 +123,47 @@ export class RtHeaderComponent implements OnInit {
           materials: [
             {
               name: 'Bloom Foam ©',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Caoutchouc',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Chanvre',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Coton bio',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Cuir tanné végétal',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Fibre de ricin',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Jute',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Kapok',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Laine',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Lin',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Liège',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
           ],
         },
@@ -172,19 +172,19 @@ export class RtHeaderComponent implements OnInit {
           materials: [
             {
               name: 'Kapok',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Laine',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Lin',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Liège',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
           ],
         },
@@ -193,23 +193,23 @@ export class RtHeaderComponent implements OnInit {
           materials: [
             {
               name: 'Bloom Foam ©',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Caoutchouc',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Chanvre',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Coton bio',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Cuir tanné végétal',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
           ],
         },
@@ -223,47 +223,47 @@ export class RtHeaderComponent implements OnInit {
           materials: [
             {
               name: 'Bloom Foam ©',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Caoutchouc',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Chanvre',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Coton bio',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Cuir tanné végétal',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Fibre de ricin',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Jute',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Kapok',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Laine',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Lin',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Liège',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
           ],
         },
@@ -272,23 +272,23 @@ export class RtHeaderComponent implements OnInit {
           materials: [
             {
               name: 'Bloom Foam ©',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Caoutchouc',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Chanvre',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Coton bio',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
             {
               name: 'Cuir tanné végétal',
-              img: '../../assets/images/img_example_tissus.svg',
+              img: '../../assets/images/img_example_tissus.webp',
             },
           ],
         },

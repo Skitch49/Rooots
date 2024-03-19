@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class RtProximityCardComponent {
   @Input() text: string = 'Bois FSC des Vosges';
-  @Input() img: string = './../../assets/images/img_example_3.svg';
+  @Input() img: string = './../../assets/images/img_example_3.webp';
   @Input() localisation: string = '60';
 }

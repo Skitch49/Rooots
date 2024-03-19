@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="header">
+  <div class="navigation">
     <p class="d-flex">
       <span routerLink="">Accueil</span
       ><img src="../../assets/icons/icon_light_arrow.svg" /><span
@@ -15,28 +15,216 @@
   </div>
   <div class="wrapper d-flex">
     <div class="container-form">
-        <form>
-            <h3>Prix<span class="unit"> / kg</span></h3>
+      <form (ngSubmit)="submit()" [formGroup]="form">
+        <p class="reset" (click)="resetForm()">Réinitialiser</p>
+        <div class="item-form">
+          <h3>Prix<span class="unit"> / mètre</span></h3>
+          <mat-slider min="{{ this.minPrice }}" max="{{ this.maxPrice }}">
+            <input
+              value="{{ this.minPrice }}"
+              #startSliderPrice
+              matSliderStartThumb
+              formControlName="minPrice"
+            />
 
-        </form>
+            <input
+              value="{{ this.maxPrice }}"
+              #endSliderPrice
+              matSliderEndThumb
+              formControlName="maxPrice"
+            />
+          </mat-slider>
+          <div class="multiple-input">
+            <div class="content-input">
+              <input
+                name="minPrice"
+                id="minPrice"
+                type="number"
+                formControlName="minPrice"
+
+                value="{{ startSliderPrice.value }}"
+              />
+              <span>Min</span>
+            </div>
+            <div class="content-input">
+              <input
+                name="maxPrice"
+                id="maxPrice"
+                formControlName="maxPrice"
+                type="number"
+                value="{{ endSliderPrice.value }}"
+              />
+              <span>Max</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-form">
+          <h3>
+            Distance<span class="unit"> (relative à votre position)</span>
+          </h3>
+          <mat-slider min="{{ this.minDistance }}" max="{{ this.maxDistance }}">
+            <input
+              #sliderDistance
+              matSliderThumb
+              formControlName="maxDistance"
+              value="{{ this.maxDistance }}"
+            />
+          </mat-slider>
+          <div class="multiple-input">
+            <div class="content-input">
+              <input
+                name="minDistance"
+                id="minDistance"
+                type="number"
+                value="{{ this.minDistance }}"
+                disabled
+              /><span>Min</span>
+            </div>
+            <div class="content-input">
+              <input
+                name="maxDistance"
+                id="maxDistance"
+                formControlName="maxDistance"
+                type="number"
+                value="{{ sliderDistance.value }}"
+              /><span>Max</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-form">
+          <h3>Origine</h3>
+          <label *ngFor="let origin of objectKeys(productOrigins)">
+            <input
+              type="checkbox"
+              class="rt-checkbox"
+              formControlName="origin"
+              id="origin"
+            />
+            <p>{{ origin }}({{ productOrigins[origin] }})</p></label
+          >
+        </div>
+        <div class="item-form">
+          <h3>Labels</h3>
+          <label *ngFor="let label of objectKeys(productLabels)">
+            <input
+              type="checkbox"
+              class="rt-checkbox"
+              formControlName="labels"
+              id="labels"
+            />
+            <p>{{ label }}({{ productLabels[label] }})</p></label
+          >
+        </div>
+        <div class="item-form">
+          <h3>Type de matière</h3>
+          <label>
+            <input
+              type="checkbox"
+              class="rt-checkbox"
+              formControlName="withSample"
+              id="sampleYes"
+            />
+            <p>Naturelle</p></label
+          >
+          <label>
+            <input
+              type="checkbox"
+              class="rt-checkbox"
+              formControlName="withoutSample"
+              id="sampleFalse"
+            />
+            <p>Synthétique</p></label
+          >
+        </div>
+        <div class="item-form">
+          <h3>Couleur</h3>
+          <label *ngFor="let color of ArrayColors">
+            <input
+              type="checkbox"
+              class="rt-checkbox"
+              formControlName="color"
+              id="sampleYes"
+            />
+            <p>{{ color }}</p></label
+          >
+        </div>
+        <div class="item-form">
+          <h3>Grammage<span class="unit"> / m2</span>
+          </h3>
+          <mat-slider min="{{ this.minGrammage }}" max="{{ this.maxGrammage}}">
+            <input
+              #sliderGrammage
+              matSliderThumb
+              formControlName="maxGrammage"
+              value="{{ this.maxGrammage }}"
+
+            />
+          </mat-slider>
+          <div class="multiple-input">
+            <div class="content-input">
+              <input
+                name="minGrammage"
+                id="minGrammage"
+                type="number"
+                value="{{ this.minGrammage }}"
+                disabled
+              /><span>Min</span>
+            </div>
+            <div class="content-input">
+              <input
+                name="maxGrammage"
+                id="maxGrammage"
+                formControlName="maxGrammage"
+                type="number"
+                value="{{ sliderGrammage.value }}"
+              /><span>Max</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-form">
+          <h3>Échantillon possible</h3>
+          <label>
+            <input
+              type="checkbox"
+              class="rt-checkbox"
+              formControlName="withSample"
+              id="sampleYes"
+            />
+            <p>Oui</p></label
+          >
+          <label>
+            <input
+              type="checkbox"
+              class="rt-checkbox"
+              formControlName="withoutSample"
+              id="sampleFalse"
+            />
+            <p>Non</p></label
+          >
+        </div>
+    
+      </form>
     </div>
     <div class="container-products d-flex">
-        <div class="info-products d-flex justify-content-space-between">
-            <p><span class="bold">??</span> materiaux trouvés</p>
-            <select name="language" id="language" class="select-sort">
-                <option selected disabled hidden>Trier par</option>
-                <option value="FRA">+</option>
-                <option value="EN">-</option>
-                <option value="ESP">autre</option>
-              </select>
-        </div>
+      <div class="info-products d-flex justify-content-space-between">
+        <p *ngIf="products">
+          <span class="bold">{{ products.length }}</span> materiaux trouvés
+        </p>
+        <select name="language" id="language" class="select-sort">
+          <option selected disabled hidden>Trier par</option>
+          <option value="FRA">+</option>
+          <option value="EN">-</option>
+          <option value="ESP">autre</option>
+        </select>
+      </div>
+      <div class="all-products">
+        <app-rt-material-card
+          titre="{{ product.titre }}"
+          prix="{{ product.prix }}"
+          *ngFor="let product of products"
+        ></app-rt-material-card>
+      </div>
     </div>
   </div>
 </div>
-<div class="d-flex">
-  <app-rt-button ></app-rt-button>
-  <app-rt-button type="secondary" ></app-rt-button>
-  <app-rt-button type="tertiary" ></app-rt-button>
-  <app-checkbox></app-checkbox>
 
-</div>

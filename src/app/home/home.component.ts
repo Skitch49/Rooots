@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('swiperHightlight') swiperHightlight: ElementRef | undefined;
   public isMobile: boolean = false;
   articleList: any = [];
+  numArray = Array(9).fill(0); // Crée un tableau de 9 éléments
 
   // Swiper
   swiperConfig: SwiperOptions = {

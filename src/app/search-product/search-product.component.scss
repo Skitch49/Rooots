@@ -1,13 +1,14 @@
-.header {
-  margin-top: 1rem;
-  border-bottom: 1px solid var(--gray-background);
-
+.container {
+  background-color: var(--gray-background);
+}
+.navigation {
+  padding-top: 2rem;
+  img {
+    margin: 0 10px;
+  }
   h1 {
     text-align: start;
     margin: 3rem 0;
-  }
-  img {
-    margin: 0 10px;
   }
   .active {
     font-weight: 700;
@@ -15,9 +16,9 @@
   }
   span {
     cursor: pointer;
-    color: #6C7D90;
-    &:hover{
-        color: var(--secondary); 
+    color: #6c7d90;
+    &:hover {
+      color: var(--secondary);
     }
   }
 }
@@ -27,17 +28,73 @@
 
   .container-form {
     flex-basis: 22rem;
-    .unit {
-      font-size: 16px;
-      font-weight: 400;
+    form {
+      margin-right: 2rem;
+      .reset {
+        font-weight: 600;
+        text-decoration: underline;
+        cursor: pointer;
+        margin-bottom: 2rem;
+      }
+      .item-form {
+        margin-bottom: 2rem;
+        .unit {
+          font-size: 16px;
+          font-weight: 400;
+        }
+        mat-slider {
+          width: 90%;
+          --mdc-slider-handle-color: #068464;
+          --mdc-slider-focus-handle-color: #068464;
+          --mdc-slider-hover-handle-color: #068464;
+          --mdc-slider-active-track-color: #068464;
+          --mdc-slider-inactive-track-color: #068464;
+          --mdc-slider-with-tick-marks-active-container-color: #fff;
+          --mdc-slider-with-tick-marks-inactive-container-color: #068464;
+          --mat-mdc-slider-ripple-color: #068464;
+        }
+        .multiple-input {
+          display: flex;
+          justify-content: space-between;
+          .content-input {
+            position: relative;
+            input {
+              width: 64px;
+              height: 38px;
+              padding-top: 13px !important;
+              padding: 0 5px;
+            }
+            span {
+              position: absolute;
+              top: 0;
+              left: 5px;
+              font-family: "DM Sans";
+              font-weight: 400;
+              font-size: 14px;
+            }
+          }
+        }
+        label {
+          display: flex;
+          flex-direction: row;
+          cursor: pointer;
+          padding-bottom: 8px;
+          input {
+            margin-right: 8px;
+          }
+        }
+      }
     }
     //   background: var(--primary);
   }
   .container-products {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     //   background: var(--secondary);
     .info-products {
       flex: 1;
+      margin-bottom: 2rem;
       .select-sort {
         -webkit-appearance: none;
         background-image: url("./../../assets/icons/icon_sort.svg");
@@ -53,9 +110,51 @@
         padding-left: 45px;
       }
     }
+    .all-products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 2rem;
+    }
   }
 }
 
 .bold {
   font-weight: 700;
+}
+
+.rt-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #97a3af;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  &:hover {
+    border: 1px solid #068464;
+    background: #cae1db;
+  }
+  &:checked {
+    background-color: #068464;
+    border-color: #068464;
+    color: white;
+    &:before {
+      content: "";
+      position: absolute;
+      right: 50%;
+      top: 50%;
+      width: 4px;
+      height: 10px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) translate(-50%, -50%);
+      z-index: 2;
+    }
+  }
 }

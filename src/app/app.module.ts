@@ -18,6 +18,7 @@ import { ProductComponent } from './product/product.component';
 
 //Material
 import {MatIconModule} from '@angular/material/icon';
+import {MatSliderModule} from '@angular/material/slider';
 
 //Pipe
 import { ShortDescPipe } from './shared/pipe/short-desc.pipe';
@@ -94,6 +95,7 @@ register();
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatSliderModule,
     HttpClientModule
   ],
   providers: [ApiRoootsService,{ provide: LOCALE_ID, useValue: 'fr-FR' }],

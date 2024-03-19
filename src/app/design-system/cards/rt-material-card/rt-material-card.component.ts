@@ -7,9 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class RtMaterialCardComponent {
   @Input() titre: string = 'Lin vegan';
-  @Input() categorie: string = 'EthicalTextiles';
-  @Input() img: string = './../../assets/images/img_example_tissus.svg';
-  @Input() prix: number = 95.90;
+  @Input() img: string = './../../assets/images/img_example_tissus.webp';
+  @Input() prix: string = '95.90';
   @Input() unite: string = 'kg';
   @Input() like: boolean = false;
 
