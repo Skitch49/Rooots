@@ -25,7 +25,6 @@
     <li class="nav-link" (click)="showSubMenu()">
       <mat-icon
         aria-hidden="false"
-        aria-label="{{ iconCatalogue }}"
         fontIcon="{{ iconCatalogue }}"
         class="leftIcon"
       ></mat-icon>
@@ -42,8 +41,8 @@
 
     <app-rt-search-bar></app-rt-search-bar>
     <!-- link="/qui-sommes-nous" A changer a la place de test -->
-    <app-rt-nav-link link="test" text="{{ whoAreYou }}" (click)="leave('test')"></app-rt-nav-link>
-    <app-rt-nav-link link="/actualites" text="{{ actu }} " (click)="leave('actualites')"></app-rt-nav-link>
+    <app-rt-nav-link link="qui-sommes-nous" text="{{ whoAreYou }}" (click)="leave('qui-sommes-nous')"></app-rt-nav-link>
+    <app-rt-nav-link link="actualites" text="{{ actu }} " (click)="leave('actualites')"></app-rt-nav-link>
     <app-rt-nav-link
       link="/devenir-vendeur"
       text="{{ becomeSheller }}"

@@ -6,6 +6,8 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { ApiRoootsService } from '../services/api-rooots.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
@@ -51,7 +53,11 @@ export class InscriptionComponent {
     return this.form.get('actuRooots');
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private api: ApiRoootsService,
+    private router: Router
+  ) {}
 
   public form: FormGroup = this.fb.group(
     {
@@ -152,23 +158,25 @@ export class InscriptionComponent {
 
   submit() {
     if (this.form.valid) {
-      // this.api.postUser({
-      //   nom: this.lastName?.value,
-      //   prenom: this.firstName?.value,
-      //   email: this.userEmail?.value,
-      //   naissance: this.userBirthday?.value,
-      //   telephone: this.userTel?.value,
-      //   companyName: this.compagny?.value,
-      //   siret: this.SIRET?.value,
-      //   role: 'user',
-      //   postalAdress: '',
-      //   postalCode: '',
-      //   ville: '',
-      //   password: this.userPassword?.value,
-      // });
-       this.form.reset();
+      this.api
+        .postUser({
+          nom: this.lastName?.value,
+          prenom: this.firstName?.value,
+          email: this.userEmail?.value,
+          naissance: this.userBirthday?.value,
+          telephone: this.userTel?.value,
+          companyName: this.compagny?.value,
+          siret: this.SIRET?.value,
+          role: 'user',
+          password: this.userPassword?.value,
+        })
+        .subscribe(
+          (data) => console.log('Utilisateur créé :', data),
+          (error) => console.error('Erreur lors de la création :', error)
+        );
+      this.form.reset();
+      this.router.navigate(['/connexion']);
     } else {
-      console.error('fonctionne pas');
       if (this.form.errors?.['passwordMismatch']) {
         console.error('Les mots de passe ne correspondent pas.');
         return;

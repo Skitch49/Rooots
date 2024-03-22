@@ -15,7 +15,7 @@
       <div class="card-actu" *ngIf="!isMobile && article.titre!=null">
         <figure>
           <img
-            src="../../assets/images/img_illustration_actu.svg"
+            src="../../assets/images/img_illustration_actu.webp"
             alt="{{ article.titre }}"
           />
         </figure>
@@ -30,7 +30,7 @@
         titre="{{ article.titre }}"
         img="../../assets/images/img_illustration_actu.svg"
         date="{{ article.createdAt | date }}"
-        desc="{{ article.description | shortDesc }}"
+        description="{{ article.description | shortDesc }}"
       ></app-rt-article>
     </div>
   </div>

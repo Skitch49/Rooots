@@ -198,14 +198,14 @@
         titre="{{ article.titre }}"
         date="{{ article.createdAt | date }}"
         description="{{ article.description | shortDesc}}"
-        routerLink="/actualites/{{article.id}}"
+        routerLink="actualites/{{article.id}}"
       ></app-rt-article>
     </div>
     <div
     class="container-card-actu d-flex justify-content-space-between mt-50 flex-wrap" *ngIf="isMobile"
   >
     <app-rt-article *ngFor="let article of lastArticle" 
-    routerLink="/actualites/{{article.id}}"
+    routerLink="actualites/{{article.id}}"
       img="../../assets/images/img_illustration_actu.webp"
       titre="{{ article.titre }}"
       date="{{ article.createdAt | date }}"

@@ -41,10 +41,15 @@
       position: absolute;
       bottom: 6rem;
       user-select: none;
+      width: 102;
+      height: 107px;
       img {
         border-radius: 50%;
         padding: 3px;
         background: white;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
