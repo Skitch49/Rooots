@@ -1,24 +1,128 @@
-<p>product works!</p>
-<div class="container-product">
-  <div class="navbar">
-    <!-- Inserer  depuis search product-->
-  </div>
-
-  <div class="wrapper">
-    <div class="little-img">
-      <img src="./../../assets/images/img_product.svg" alt="" />
-      <img src="./../../assets/images/img_product.svg" alt="" />
-      <img src="./../../assets/images/img_product.svg" alt="" />
+<p>rt-product works!</p>
+<div class="container-product container">
+    <div class="navigation">
+      <p class="d-flex" >
+        <span routerLink="">Accueil</span
+        ><img src="../../assets/icons/icon_light_arrow.svg" /><span
+          routerLink="/{{ categorie }}"
+          >{{ categorie }}</span
+        ><img src="../../assets/icons/icon_light_arrow.svg" /><span
+          routerLink="/{{ categorie }}/{{ subcategorie }}"
+          >{{ subcategorie }}</span
+        >
+        <img src="../../assets/icons/icon_light_arrow.svg" /><span
+          routerLink="/{{ categorie }}/{{ subcategorie }}/{{ product }}"
+          routerLinkActive="active"
+          >{{ product }}</span
+        >
+      </p>
     </div>
-    <figure>
-      <img src="./../../assets/images/img_product.svg" alt="" />
-    </figure>
-    <div class="info-product">
-        <app-rt-nav-link>EthicalTextiles</app-rt-nav-link>
+  
+    <div class="wrapper">
+      <div class="wrapper-img">
+        <div class="little-img">
+          <figure
+            (click)="changeMainImage('./../../assets/images/img_product.webp')"
+          >
+            <img src="./../../assets/images/img_product.webp" alt="" />
+          </figure>
+          <figure
+            (click)="changeMainImage('./../../assets/images/img_example_1.webp')"
+          >
+            <img src="./../../assets/images/img_example_1.webp" alt="" />
+          </figure>
+          <figure
+            (click)="changeMainImage('./../../assets/images/img_example_3.webp')"
+          >
+            <img src="./../../assets/images/img_example_3.webp" alt="" />
+          </figure>
+        </div>
+        <figure>
+          <img [src]="mainImage" alt="" />
+        </figure>
+      </div>
+  
+      <div class="info-product">
         <h2>Lin vegan</h2>
-        <p>95,90€<span>/kg</span></p>
-        <p>Hors taxe</p>
-        <p>Cultivé sans l'utilisation de pesticides ni d'engrais chimiques, le lin vegan est respectueux de l'environnement tout en offrant une alternative végétalienne aux tissus traditionnels.</p>
+        <h3>95,90€<span class="gray">/kg</span></h3>
+        <p class="gray">Hors taxe</p>
+        <p class="desc">
+          Cultivé sans l'utilisation de pesticides ni d'engrais chimiques, le lin
+          vegan est respectueux de l'environnement tout en offrant une alternative
+          végétalienne aux tissus traditionnels.
+        </p>
+        <div class="first-btn">
+          <div class="quantity-value-btn">
+            <button class="rt-secondary btn-dash" (click)="decrement()">
+              <img src="../../assets/icons/icon_dash.svg" /></button
+            ><input type="text" name="" id="" value="{{ this.quantity }}" />
+            <button class="rt-secondary btn-plus" (click)="increment()">
+              <img src="../../assets/icons/icon_plus.svg" />
+            </button>
+          </div>
+  
+          <button class="rt-secondary sample">Obtenir un échantillon</button>
+        </div>
+        <div class="secondary-btn">
+          <button class="rt-primary">Ajouter au panier</button>
+        </div>
+        <div class="info-delivery">
+          <div class="title-delivery">
+            <img src="../../assets/icons/icon_truck.svg" alt="camion" />
+            <p>Date de livraison estimée</p>
+          </div>
+          <div class="time-delivery">
+            <p class="date">Mer, 02.08 - Ven, 04.08</p>
+            <p class="more-info">Plus d'info</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-product-details">
+      <div class="item-details">
+        <h2>Détails</h2>
+        <p>
+          <span class="marge"
+            ><img src="./../../assets/icons/icon_position.svg" /></span
+          >Origine : <span class="color"> France</span>
+        </p>
+        <p>
+          <span class="marge"
+            ><img src="./../../assets/icons/icon_clouds.svg" /></span
+          >Empreinte carbone : <span class="color"> XXkg CO2eq</span>
+        </p>
+        <p>
+          <span class="marge"
+            ><img src="./../../assets/icons/icon_time.svg" /></span
+          >Indice de durabilité : <span class="color">XX/100</span>
+        </p>
+        <p>
+          <span class="marge"
+            ><img src="./../../assets/icons/icon_utilisation.svg" /></span
+          >Utilisation(s) : <span class="color">XX/100</span>
+        </p>
+        <p>
+          <span class="marge"
+            ><img src="./../../assets/icons/icon_label.svg" /></span
+          >Label(s) :
+          <span class="color">Ecolabel européen</span>
+        </p>
+      </div>
+      <div class="item">
+        <h2>Avantages</h2>
+        <div class="container-avantage">
+          <figure><img src="./../../assets/icons/icon_france.svg" /></figure>
+          <p>Fabrication française</p>
+        </div>
+        <div class="container-avantage">
+          <figure><img src="./../../assets/icons/icon_flowers.svg" /></figure>
+          <p>Végétalien</p>
+        </div>
+        <div class="container-avantage">
+          <figure><img src="./../../assets/icons/icon_leaf.svg" /></figure>
+          <p>Issue de l'agriculture biologique</p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+  

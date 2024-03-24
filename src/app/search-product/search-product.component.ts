@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ApiRoootsService } from '../services/api-rooots.service';
 import { Subscription } from 'rxjs';
@@ -23,11 +23,21 @@ export class SearchProductComponent implements OnInit {
   productOrigins: { [name: string]: number } = {};
   productLabels: { [name: string]: number } = {};
   ArrayColors: string[] = [];
+
+  selectedProduct: any;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private apiRooots: ApiRoootsService,
     private fb: FormBuilder
   ) {}
+
+  selectProduct(product: any) {
+    console.log('test product', product);
+    this.selectedProduct = product;
+  }
+  
+  
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {

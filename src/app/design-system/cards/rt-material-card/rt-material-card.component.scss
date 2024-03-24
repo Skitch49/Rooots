@@ -1,6 +1,8 @@
 .material-card {
   width: 296px;
-  height: 395px;
+  height: 100%;
+
+  cursor: pointer;
   .like {
     display: flex;
     justify-content: flex-end;
@@ -38,7 +40,7 @@
     justify-content: space-between;
     padding: 24px;
     background-color: white;
-    height: 183px;
+    height: 150px;
     .categorie {
       color: #666;
       margin-bottom: 8px;

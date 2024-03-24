@@ -219,9 +219,11 @@
       </div>
       <div class="all-products">
         <app-rt-material-card
+        (click)="selectProduct(product)"
           titre="{{ product.titre }}"
           prix="{{ product.prix }}"
           *ngFor="let product of products"
+          routerLink="{{product.titre}}"
         ></app-rt-material-card>
       </div>
     </div>

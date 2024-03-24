@@ -12,7 +12,9 @@ export class RtMaterialCardComponent {
   @Input() unite: string = 'kg';
   @Input() like: boolean = false;
 
-  likeEvent(){
+  likeEvent(event: MouseEvent){
+    event.stopPropagation(); // Empêche la propagation de l'événement
+
     this.like = !this.like;
   }
 }

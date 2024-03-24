@@ -39,7 +39,12 @@ export class ApiRoootsService {
     );
   }
 
-
+  getAllProducts() {
+    return this.http
+      .get(`${environment.api}/products`)
+      .pipe(catchError(this.handleError));
+  }
+  
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // Erreur côté client

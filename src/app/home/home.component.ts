@@ -7,9 +7,9 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { SwiperContainer, register } from 'swiper/element';
-import { TranslateService } from '../../../services/translate.service';
+import { TranslateService } from '../services/translate.service';
 import { SwiperOptions } from 'swiper/types';
-import { ApiRoootsService } from '../../../services/api-rooots.service';
+import { ApiRoootsService } from '../services/api-rooots.service';
 
 @Component({
   selector: 'app-home',
