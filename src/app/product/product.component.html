@@ -43,14 +43,10 @@
       </div>
   
       <div class="info-product">
-        <h2>Lin vegan</h2>
-        <h3>95,90€<span class="gray">/kg</span></h3>
+        <h2>{{product.name}}</h2>
+        <h3>{{product.prix}}€<span class="gray">/kg</span></h3>
         <p class="gray">Hors taxe</p>
-        <p class="desc">
-          Cultivé sans l'utilisation de pesticides ni d'engrais chimiques, le lin
-          vegan est respectueux de l'environnement tout en offrant une alternative
-          végétalienne aux tissus traditionnels.
-        </p>
+        <p class="desc">{{product.description}}</p>
         <div class="first-btn">
           <div class="quantity-value-btn">
             <button class="rt-secondary btn-dash" (click)="decrement()">
@@ -61,7 +57,7 @@
             </button>
           </div>
   
-          <button class="rt-secondary sample">Obtenir un échantillon</button>
+          <button class="rt-secondary sample" *ngIf="product.sample">Obtenir un échantillon</button>
         </div>
         <div class="secondary-btn">
           <button class="rt-primary">Ajouter au panier</button>
@@ -84,7 +80,7 @@
         <p>
           <span class="marge"
             ><img src="./../../assets/icons/icon_position.svg" /></span
-          >Origine : <span class="color"> France</span>
+          >Origine : <span class="color"> {{product.origin}}</span>
         </p>
         <p>
           <span class="marge"
@@ -105,7 +101,7 @@
           <span class="marge"
             ><img src="./../../assets/icons/icon_label.svg" /></span
           >Label(s) :
-          <span class="color">Ecolabel européen</span>
+          <span class="color" *ngFor="let label of product.label">{{label}}</span>
         </p>
       </div>
       <div class="item">
