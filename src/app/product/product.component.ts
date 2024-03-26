@@ -10,8 +10,8 @@ import { ApiRoootsService } from '../services/api-rooots.service';
 export class ProductComponent implements OnInit {
   public categorie?: string;
   public subcategorie?: string;
-  public product!: any;
-  public productId!: string;
+  public product: any;
+  public productId!: any;
   public quantity?: number = 1;
 
   public mainImage: string = './../../assets/images/img_product.webp';
@@ -22,21 +22,19 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getProduct();
-    console.log('product :' + this.product); // Utilisez l'objet product comme nécessaire
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.categorie = paramMap.get('categorie')!;
       this.subcategorie = paramMap.get('subcategorie')!;
-      this.product.name = paramMap.get('product')!;
-      console.log(this.productId);
+      this.productId = paramMap.get('product')!;
     });
+    this.getProduct();
   }
-
-  
 
   getProduct() {
     this.apiRooots.getProductId(this.productId).subscribe(
-      (data) => (this.product = data),
+      (data)=> {
+        this.product = data;
+      },
       (error) => console.error(error)
     );
   }

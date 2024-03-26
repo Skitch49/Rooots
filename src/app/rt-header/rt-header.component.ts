@@ -47,7 +47,6 @@ export class RtHeaderComponent implements OnInit {
     this.isMobile = window.innerWidth < 900;
   }
 
-  Username = 'Alexis';
   connexionBtn = '';
   whoAreYou = '';
   catalogue = '';
@@ -56,8 +55,15 @@ export class RtHeaderComponent implements OnInit {
   actu = '';
   becomeSheller = '';
   currentLangage: any = '';
+  userName$: Observable<string>;
 
-  constructor(public _translator: TranslateService, private router: Router, private _http: ApiRoootsService) {
+  constructor(
+    public _translator: TranslateService,
+    private router: Router,
+    private _http: ApiRoootsService
+  ) {
+    this.userName$ = this._http.userName$;
+
     this.detectScreenSize();
     this.currentLangage = localStorage.getItem('langage');
     if (this.currentLangage) {
@@ -86,8 +92,11 @@ export class RtHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._http.getAllUser().subscribe((resp)=>{      
-    })
+    this._http.isLoggedIn$.subscribe((isLoggedIn) => {
+      this.connexion = isLoggedIn;
+    });
+
+    this._http.getAllUser().subscribe((resp) => {});
   }
 
   public showSubMenu() {
@@ -99,7 +108,7 @@ export class RtHeaderComponent implements OnInit {
       this.iconCatalogue = 'border_all';
       this.burgerMenuIcon = 'menu';
       // Réinitialisez l'étape lorsque le menu est fermé
-    this.currentStep = 1;
+      this.currentStep = 1;
     }
   }
 
@@ -296,10 +305,10 @@ export class RtHeaderComponent implements OnInit {
     },
   ];
 
-  public leave(link:string):void {
+  public leave(link: string): void {
     this.subMenuVisible = false;
     this.iconCatalogue = 'border_all';
     this.burgerMenuIcon = 'menu';
-    this.router.navigate([link])
+    this.router.navigate([link]);
   }
 }

@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, from, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, from, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
@@ -8,7 +8,19 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class ApiRoootsService {
+  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  private userName = new BehaviorSubject<string>('');
+  isLoggedIn$ = this.isLoggedInSubject.asObservable();
+  userName$ = this.userName.asObservable();
+
   constructor(private http: HttpClient) {}
+
+  setUserName(userName: string) {
+    this.userName.next(userName);
+  }
+  setLoggedIn(value: boolean) {
+    this.isLoggedInSubject.next(value);
+  }
 
   getAllUser(): Observable<any> {
     let url = `${environment.api}/users`;
@@ -22,7 +34,12 @@ export class ApiRoootsService {
   postUser(user: any): Observable<any> {
     return this.http.post(`${environment.api}/users`, user);
   }
-
+  postLogin(email: any, password: any) {
+    return this.http.post(
+      `${environment.api}/login`,
+      { email: email, password: password }
+    );
+  }
   getAllArticles() {
     let url = `${environment.api}/articles`;
     return this.http.get(url).pipe(catchError(this.handleError));
@@ -46,7 +63,7 @@ export class ApiRoootsService {
       )
       .pipe(catchError(this.handleError));
   }
-  
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // Erreur côté client

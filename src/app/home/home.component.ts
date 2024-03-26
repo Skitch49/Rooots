@@ -214,12 +214,12 @@ export class HomeComponent implements OnInit {
       this.paraHome =
         'Find ecoresponsable materials you need from europeans suppliers, and contribute to the creation of a solid future for your company and your planet.';
       this.buy = 'Product list';
-      this.hightlightCard1 = 'English please';
-      this.hightlightCard2 = 'English please';
-      this.hightlightCard3 = 'English please';
-      this.hightlightCard4 = 'English please';
-      this.titleProximity = 'English please';
-      this.descProximity = 'English please';
+      this.hightlightCard1 = 'Materials for eco-responsible caps';
+      this.hightlightCard2 = 'Natural fabrics to make napkins or tea towels';
+      this.hightlightCard3 = 'Materials for ecological and good quality laces';
+      this.hightlightCard4 = 'Source yourself to make your own respectful shirts';
+      this.titleProximity = 'It\'s close to you';
+      this.descProximity = 'Discover local eco-responsible products, carefully selected from suppliers near you, for a sustainable supply chain with low environmental impact.';
       this.btnAllMaterials = `English please`;
       this.textCardProximity = `English please`;
       this.whyRooots = `English please`;

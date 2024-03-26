@@ -16,7 +16,7 @@
       type="quaternary"
       size="big"
       leftIcon="person_outline"
-      text="{{ Username }}"
+      text="{{ userName$ | async }}"
       *ngIf="connexion"
     ></app-rt-button>
     <app-rt-language-dropdown></app-rt-language-dropdown>
@@ -109,7 +109,7 @@
       type="quaternary"
       size="big"
       leftIcon="person_outline"
-      text="{{ Username }}"
+      text="{{ userName$ | async }}"
       *ngIf="connexion"
     ></app-rt-button>
   </div>

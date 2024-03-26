@@ -210,17 +210,15 @@
         <p *ngIf="products">
           <span class="bold">{{ products.length }}</span> materiaux trouvés
         </p>
-        <select name="language" id="language" class="select-sort">
+        <select name="language" id="language" class="select-sort" (change)="onSortChange($event)">
           <option selected disabled hidden>Trier par</option>
-          <option value="FRA">+</option>
-          <option value="EN">-</option>
-          <option value="ESP">autre</option>
+          <option value="+">+</option>
+          <option value="-">-</option>
         </select>
       </div>
       <div class="all-products">
         <app-rt-material-card
-        (click)="selectProduct(product)"
-          titre="{{ product.titre }}"
+          titre="{{ product.nom }}"
           prix="{{ product.prix }}"
           *ngFor="let product of products"
           routerLink="{{product.id}}"
